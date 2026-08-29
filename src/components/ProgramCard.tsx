@@ -63,9 +63,7 @@ export const ProgramCard: React.FC<ProgramCardProps> = ({
 
       {/* Highlights / Footer */}
       <div className="pt-4 border-t border-slate-100 mt-auto">
-        <div className="flex items-center justify-between gap-2">
-          <span className="text-xs font-semibold text-slate-500">
-            Fee: <span className="text-slate-800 font-bold">{program.feePerSemester}/sem</span>
+        <div className="flex items-center justify-between gap-2">  <span className="text-xs font-semibold text-slate-500">
           </span>
 
           <div className="flex items-center space-x-2">

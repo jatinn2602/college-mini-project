@@ -45,9 +45,6 @@ export const Placements: React.FC<PlacementsProps> = ({ onOpenApplyModal }) => {
                 <span className="text-xl font-extrabold text-[#123B6D] font-heading">
                   {rec.logoText}
                 </span>
-                <span className="text-[11px] text-slate-500 font-medium mt-1">
-                  {rec.category}
-                </span>
               </div>
             ))}
           </div>

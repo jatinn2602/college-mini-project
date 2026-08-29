@@ -67,7 +67,7 @@ export const Home: React.FC<HomeProps> = ({ onOpenApplyModal }) => {
         {/* Background Image with Dark Hero Overlay */}
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1920&q=80"
+            src="/assets/srgi front.png"
             alt="SRGI Campus Building"
             className="w-full h-full object-cover object-center"
           />
@@ -353,14 +353,14 @@ export const Home: React.FC<HomeProps> = ({ onOpenApplyModal }) => {
               <div className="space-y-4">
                 <div className="rounded-2xl overflow-hidden shadow-md h-56 bg-slate-100">
                   <img
-                    src="https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&w=800&q=80"
+                    src="/assets/library.jpeg"
                     alt="SRGI Campus Library"
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                   />
                 </div>
                 <div className="rounded-2xl overflow-hidden shadow-md h-40 bg-slate-100">
                   <img
-                    src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=80"
+                    src="/assets/cafe.jpg"
                     alt="SRGI Science Lab"
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                   />
@@ -369,14 +369,14 @@ export const Home: React.FC<HomeProps> = ({ onOpenApplyModal }) => {
               <div className="space-y-4 pt-6">
                 <div className="rounded-2xl overflow-hidden shadow-md h-40 bg-slate-100">
                   <img
-                    src="https://images.unsplash.com/photo-1526676037777-05a232554f77?auto=format&fit=crop&w=800&q=80"
+                    src="/assets/gym.jpg"
                     alt="Sports Facilities"
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                   />
                 </div>
                 <div className="rounded-2xl overflow-hidden shadow-md h-56 bg-slate-100">
                   <img
-                    src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80"
+                    src="/assets/hostel.jpeg"
                     alt="Student Collaboration"
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                   />
@@ -406,9 +406,6 @@ export const Home: React.FC<HomeProps> = ({ onOpenApplyModal }) => {
               >
                 <span className="text-lg font-extrabold text-white font-heading">
                   {rec.logoText}
-                </span>
-                <span className="text-[10px] text-slate-300 mt-1 truncate max-w-full">
-                  {rec.category}
                 </span>
               </div>
             ))}

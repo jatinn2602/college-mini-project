@@ -45,18 +45,18 @@ export const STATS_DATA: StatItem[] = [
 ];
 
 export const RECRUITERS = [
-  { name: 'TCS', logoText: 'TCS', category: 'IT & Software' },
-  { name: 'Infosys', logoText: 'Infosys', category: 'IT & Software' },
+  { name: 'Pfizer', logoText: 'Pfizer', category: 'Pharmaceuticals' },
+  { name: 'Boeing', logoText: 'Boeing', category: 'Mechanical' },
   { name: 'Wipro', logoText: 'Wipro', category: 'IT & Software' },
-  { name: 'Tech Mahindra', logoText: 'Tech Mahindra', category: 'IT & Telecom' },
+  { name: 'Jaypee', logoText: 'Tech Mahindra', category: 'IT & Telecom' },
   { name: 'HCL Technologies', logoText: 'HCL Tech', category: 'IT & Software' },
-  { name: 'Sun Pharma', logoText: 'Sun Pharma', category: 'Pharmaceuticals' },
-  { name: 'Cipla', logoText: 'Cipla', category: 'Pharmaceuticals' },
-  { name: 'L&T Construction', logoText: 'L&T', category: 'Core & Infrastructure' },
-  { name: 'ICICI Bank', logoText: 'ICICI Bank', category: 'Banking & BFSI' },
-  { name: 'HDFC Bank', logoText: 'HDFC Bank', category: 'Banking & BFSI' },
-  { name: 'Mahindra & Mahindra', logoText: 'Mahindra', category: 'Automobile' },
-  { name: 'Escorts Kubota', logoText: 'Escorts', category: 'Agriculture & Mechanical' }
+  { name: 'LG', logoText: 'Sun Pharma', category: 'Pharmaceuticals' },
+  { name: 'Sony', logoText: 'Cipla', category: 'Pharmaceuticals' },
+  { name: 'Genpact', logoText: 'L&T', category: 'Core & Infrastructure' },
+  { name: 'Paytm', logoText: 'ICICI Bank', category: 'Banking & BFSI' },
+  { name: 'PUMA', logoText: 'HDFC Bank', category: 'Banking & BFSI' },
+  { name: 'IDBI Bank', logoText: 'IDBI Bank', category: 'Automobile' },
+  { name: '99acres.com', logoText: '99acres.com', category: 'Agriculture & Mechanical' }
 ];
 
 export const ACCREDITATIONS = [

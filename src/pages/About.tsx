@@ -60,7 +60,7 @@ export const About: React.FC<AboutProps> = ({ onOpenApplyModal }) => {
             <div className="lg:col-span-6">
               <div className="rounded-2xl overflow-hidden shadow-xl border border-slate-200">
                 <img
-                  src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1000&q=80"
+                  src="/assets/srgi1.jpeg"
                   alt="SRGI Main Building"
                   className="w-full h-[400px] object-cover"
                 />

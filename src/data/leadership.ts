@@ -1,7 +1,7 @@
 export const CHAIRMAN_DATA = {
-  name: 'Er. Pawan Kumar Yadav',
+  name: 'Surendra Kumar Rai',
   title: 'Chairman, SR Group of Institutions',
-  image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80',
+  image: '/assets/chairman.jpeg',
   quoteExcerpt: 'Education is not merely about gaining academic credentials; it is about building character, fostering innovation, and preparing young minds to solve real-world challenges.',
   fullMessage: `Welcome to S.R. Group of Institutions (SRGI), Jhansi.
 
