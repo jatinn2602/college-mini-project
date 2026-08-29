@@ -4,8 +4,9 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
+    "dev": "node scripts/copy-assets.js && vite",
+    "prebuild": "node scripts/copy-assets.js",
+    "build": "node scripts/copy-assets.js && tsc && vite build",
     "lint": "tsc",
     "preview": "vite preview"
   },

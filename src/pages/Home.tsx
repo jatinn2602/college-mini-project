@@ -67,7 +67,7 @@ export const Home: React.FC<HomeProps> = ({ onOpenApplyModal }) => {
         {/* Background Image with Dark Hero Overlay */}
         <div className="absolute inset-0 z-0">
           <img
-            src="/assets/srgi front.png"
+            src="/assets/srgi_front.png"
             alt="SRGI Campus Building"
             className="w-full h-full object-cover object-center"
           />

@@ -22,7 +22,7 @@ export const CampusLife: React.FC<CampusLifeProps> = ({ onOpenApplyModal }) => {
       icon: Building2,
       title: '80-Acre Modern Campus',
       desc: 'Lush green landscape equipped with Wi-Fi connected academic blocks, seminar halls, auditoriums, and open-air amphitheaters.',
-      image: '/assets/srgi front.png',
+      image: '/assets/srgi_front.png',
     },
     {
       id: 'hostel',
