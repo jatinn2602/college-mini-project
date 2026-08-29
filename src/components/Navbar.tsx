@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ChevronDown, Menu, X, GraduationCap, ArrowRight } from 'lucide-react';
+import { ChevronDown, Menu, X, ArrowRight } from 'lucide-react';
 import { MobileMenu } from './MobileMenu';
+import { Logo } from './Logo';
 
 interface NavbarProps {
   onOpenApplyModal: () => void;
@@ -90,27 +91,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenApplyModal }) => {
   return (
     <>
       <header
-        className={`sticky top-0 z-40 transition-all duration-300 ${
-          isScrolled
+        className={`sticky top-0 z-40 transition-all duration-300 ${isScrolled
             ? 'glass-nav shadow-lg border-b border-slate-200/80 py-3'
             : 'bg-white border-b border-slate-200/50 py-4'
-        }`}
+          }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <Link to="/" className="flex items-center space-x-3 group focus:outline-none">
-              <div className="w-10 h-10 lg:w-11 lg:h-11 bg-[#123B6D] rounded-xl flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform duration-200">
-                <GraduationCap className="w-6 h-6 text-[#F59E0B]" />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-xl lg:text-2xl font-extrabold tracking-tight text-[#123B6D] leading-none font-heading">
-                  SRGI
-                </span>
-                <span className="text-[10px] uppercase tracking-wider font-semibold text-[#0F766E] mt-0.5">
-                  Group of Institutions • Jhansi
-                </span>
-              </div>
+            <Link to="/" className="flex items-center group focus:outline-none py-1">
+              <Logo size="lg" />
             </Link>
 
             {/* Desktop Navigation Links */}
@@ -129,18 +119,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenApplyModal }) => {
                     <div className="flex items-center">
                       <Link
                         to={item.path}
-                        className={`px-3 py-2 rounded-lg text-sm font-semibold transition-all duration-150 flex items-center space-x-1 ${
-                          isActive
+                        className={`px-3 py-2 rounded-lg text-sm font-semibold transition-all duration-150 flex items-center space-x-1 ${isActive
                             ? 'text-[#123B6D] bg-slate-100'
                             : 'text-slate-700 hover:text-[#123B6D] hover:bg-slate-50'
-                        }`}
+                          }`}
                       >
                         <span>{item.label}</span>
                         {hasDropdown && (
                           <ChevronDown
-                            className={`w-4 h-4 ml-0.5 transition-transform duration-200 ${
-                              activeDropdown === item.label ? 'rotate-180 text-[#123B6D]' : 'text-slate-400'
-                            }`}
+                            className={`w-4 h-4 ml-0.5 transition-transform duration-200 ${activeDropdown === item.label ? 'rotate-180 text-[#123B6D]' : 'text-slate-400'
+                              }`}
                           />
                         )}
                       </Link>

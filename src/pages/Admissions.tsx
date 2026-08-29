@@ -224,9 +224,8 @@ export const Admissions: React.FC = () => {
                       placeholder="e.g. Amit Kumar"
                       value={formData.fullName}
                       onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                      className={`w-full px-4 py-2.5 bg-white text-sm border ${
-                        errors.fullName ? 'border-red-500' : 'border-slate-300'
-                      } rounded-xl focus:outline-none focus:border-[#123B6D]`}
+                      className={`w-full px-4 py-2.5 bg-white text-sm border ${errors.fullName ? 'border-red-500' : 'border-slate-300'
+                        } rounded-xl focus:outline-none focus:border-[#123B6D]`}
                     />
                     {errors.fullName && <p className="text-xs text-red-500 mt-1">{errors.fullName}</p>}
                   </div>
@@ -241,9 +240,8 @@ export const Admissions: React.FC = () => {
                         placeholder="email@example.com"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className={`w-full px-4 py-2.5 bg-white text-sm border ${
-                          errors.email ? 'border-red-500' : 'border-slate-300'
-                        } rounded-xl focus:outline-none focus:border-[#123B6D]`}
+                        className={`w-full px-4 py-2.5 bg-white text-sm border ${errors.email ? 'border-red-500' : 'border-slate-300'
+                          } rounded-xl focus:outline-none focus:border-[#123B6D]`}
                       />
                       {errors.email && <p className="text-xs text-red-500 mt-1">{errors.email}</p>}
                     </div>
@@ -257,9 +255,8 @@ export const Admissions: React.FC = () => {
                         placeholder="10-digit number"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className={`w-full px-4 py-2.5 bg-white text-sm border ${
-                          errors.phone ? 'border-red-500' : 'border-slate-300'
-                        } rounded-xl focus:outline-none focus:border-[#123B6D]`}
+                        className={`w-full px-4 py-2.5 bg-white text-sm border ${errors.phone ? 'border-red-500' : 'border-slate-300'
+                          } rounded-xl focus:outline-none focus:border-[#123B6D]`}
                       />
                       {errors.phone && <p className="text-xs text-red-500 mt-1">{errors.phone}</p>}
                     </div>
@@ -275,9 +272,8 @@ export const Admissions: React.FC = () => {
                         placeholder="e.g. Jhansi / Gwalior"
                         value={formData.city}
                         onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-                        className={`w-full px-4 py-2.5 bg-white text-sm border ${
-                          errors.city ? 'border-red-500' : 'border-slate-300'
-                        } rounded-xl focus:outline-none focus:border-[#123B6D]`}
+                        className={`w-full px-4 py-2.5 bg-white text-sm border ${errors.city ? 'border-red-500' : 'border-slate-300'
+                          } rounded-xl focus:outline-none focus:border-[#123B6D]`}
                       />
                       {errors.city && <p className="text-xs text-red-500 mt-1">{errors.city}</p>}
                     </div>
@@ -350,9 +346,8 @@ export const Admissions: React.FC = () => {
                   >
                     <span>{faq.q}</span>
                     <ChevronDown
-                      className={`w-5 h-5 text-slate-400 shrink-0 transition-transform ${
-                        isOpen ? 'rotate-180 text-[#123B6D]' : ''
-                      }`}
+                      className={`w-5 h-5 text-slate-400 shrink-0 transition-transform ${isOpen ? 'rotate-180 text-[#123B6D]' : ''
+                        }`}
                     />
                   </button>
                   {isOpen && (

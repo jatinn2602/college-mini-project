@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronDown, X, Phone, Mail, GraduationCap } from 'lucide-react';
+import { ChevronDown, X, Phone, Mail } from 'lucide-react';
+import { Logo } from './Logo';
 
 interface NavItem {
   label: string;
@@ -33,11 +34,8 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
     <div className="fixed inset-0 z-50 lg:hidden flex flex-col bg-white">
       {/* Header */}
       <div className="flex items-center justify-between px-5 py-4 border-b border-slate-200">
-        <Link to="/" onClick={onClose} className="flex items-center space-x-2">
-          <div className="w-9 h-9 bg-[#123B6D] rounded-lg flex items-center justify-center text-white">
-            <GraduationCap className="w-5 h-5 text-[#F59E0B]" />
-          </div>
-          <span className="text-xl font-bold text-[#123B6D] font-heading">SRGI</span>
+        <Link to="/" onClick={onClose} className="flex items-center">
+          <Logo size="sm" />
         </Link>
         <button
           onClick={onClose}
@@ -64,9 +62,8 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
                   >
                     <span>{item.label}</span>
                     <ChevronDown
-                      className={`w-5 h-5 text-slate-400 transition-transform duration-200 ${
-                        isExpanded ? 'rotate-180 text-[#123B6D]' : ''
-                      }`}
+                      className={`w-5 h-5 text-slate-400 transition-transform duration-200 ${isExpanded ? 'rotate-180 text-[#123B6D]' : ''
+                        }`}
                     />
                   </button>
                   {isExpanded && (

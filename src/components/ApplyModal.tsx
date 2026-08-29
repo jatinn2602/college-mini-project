@@ -148,9 +148,8 @@ export const ApplyModal: React.FC<ApplyModalProps> = ({
                   placeholder="e.g. Rahul Sharma"
                   value={formData.fullName}
                   onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                  className={`w-full px-3.5 py-2.5 text-sm rounded-xl border ${
-                    errors.fullName ? 'border-red-500 bg-red-50' : 'border-slate-300 focus:border-[#123B6D]'
-                  } focus:outline-none transition-colors`}
+                  className={`w-full px-3.5 py-2.5 text-sm rounded-xl border ${errors.fullName ? 'border-red-500 bg-red-50' : 'border-slate-300 focus:border-[#123B6D]'
+                    } focus:outline-none transition-colors`}
                 />
                 {errors.fullName && <p className="text-xs text-red-500 mt-1">{errors.fullName}</p>}
               </div>
@@ -165,9 +164,8 @@ export const ApplyModal: React.FC<ApplyModalProps> = ({
                     placeholder="name@example.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className={`w-full px-3.5 py-2.5 text-sm rounded-xl border ${
-                      errors.email ? 'border-red-500 bg-red-50' : 'border-slate-300 focus:border-[#123B6D]'
-                    } focus:outline-none transition-colors`}
+                    className={`w-full px-3.5 py-2.5 text-sm rounded-xl border ${errors.email ? 'border-red-500 bg-red-50' : 'border-slate-300 focus:border-[#123B6D]'
+                      } focus:outline-none transition-colors`}
                   />
                   {errors.email && <p className="text-xs text-red-500 mt-1">{errors.email}</p>}
                 </div>
@@ -181,9 +179,8 @@ export const ApplyModal: React.FC<ApplyModalProps> = ({
                     placeholder="10-digit number"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className={`w-full px-3.5 py-2.5 text-sm rounded-xl border ${
-                      errors.phone ? 'border-red-500 bg-red-50' : 'border-slate-300 focus:border-[#123B6D]'
-                    } focus:outline-none transition-colors`}
+                    className={`w-full px-3.5 py-2.5 text-sm rounded-xl border ${errors.phone ? 'border-red-500 bg-red-50' : 'border-slate-300 focus:border-[#123B6D]'
+                      } focus:outline-none transition-colors`}
                   />
                   {errors.phone && <p className="text-xs text-red-500 mt-1">{errors.phone}</p>}
                 </div>
@@ -199,9 +196,8 @@ export const ApplyModal: React.FC<ApplyModalProps> = ({
                     placeholder="e.g. Jhansi"
                     value={formData.city}
                     onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-                    className={`w-full px-3.5 py-2.5 text-sm rounded-xl border ${
-                      errors.city ? 'border-red-500 bg-red-50' : 'border-slate-300 focus:border-[#123B6D]'
-                    } focus:outline-none transition-colors`}
+                    className={`w-full px-3.5 py-2.5 text-sm rounded-xl border ${errors.city ? 'border-red-500 bg-red-50' : 'border-slate-300 focus:border-[#123B6D]'
+                      } focus:outline-none transition-colors`}
                   />
                   {errors.city && <p className="text-xs text-red-500 mt-1">{errors.city}</p>}
                 </div>
@@ -213,9 +209,8 @@ export const ApplyModal: React.FC<ApplyModalProps> = ({
                   <select
                     value={formData.program}
                     onChange={(e) => setFormData({ ...formData, program: e.target.value })}
-                    className={`w-full px-3.5 py-2.5 text-sm rounded-xl border ${
-                      errors.program ? 'border-red-500 bg-red-50' : 'border-slate-300 focus:border-[#123B6D]'
-                    } focus:outline-none bg-white transition-colors`}
+                    className={`w-full px-3.5 py-2.5 text-sm rounded-xl border ${errors.program ? 'border-red-500 bg-red-50' : 'border-slate-300 focus:border-[#123B6D]'
+                      } focus:outline-none bg-white transition-colors`}
                   >
                     {PROGRAMS_DATA.map((prog) => (
                       <option key={prog.id} value={prog.id}>

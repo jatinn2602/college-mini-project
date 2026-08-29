@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { GraduationCap, MapPin, Phone, Mail, ArrowUpRight, ShieldCheck, Heart } from 'lucide-react';
+import { MapPin, Phone, Mail, ArrowUpRight, ShieldCheck, Heart } from 'lucide-react';
+import { Logo } from './Logo';
 
 interface FooterProps {
   onOpenApplyModal: () => void;
@@ -13,17 +14,9 @@ export const Footer: React.FC<FooterProps> = ({ onOpenApplyModal }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-800">
           {/* Column 1: Institutional Branding */}
           <div className="lg:col-span-2 space-y-4">
-            <Link to="/" className="flex items-center space-x-3 group">
-              <div className="w-10 h-10 bg-[#123B6D] border border-amber-500/30 rounded-xl flex items-center justify-center text-white">
-                <GraduationCap className="w-6 h-6 text-[#F59E0B]" />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-2xl font-extrabold text-white font-heading tracking-tight">
-                  SRGI
-                </span>
-                <span className="text-[10px] uppercase tracking-wider font-semibold text-[#14B8A6]">
-                  SR Group of Institutions • Jhansi
-                </span>
+            <Link to="/" className="flex items-center group py-1">
+              <div className="bg-white/95 p-2 rounded-xl shadow-md">
+                <Logo size="md" />
               </div>
             </Link>
 
