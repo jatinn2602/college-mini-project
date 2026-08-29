@@ -1,0 +1,338 @@
+export interface Program {
+  id: string;
+  name: string;
+  code: string;
+  category: 'UG' | 'PG' | 'Diploma';
+  duration: string;
+  department: string;
+  description: string;
+  eligibility: string;
+  feePerSemester: string;
+  highlights: string[];
+  careerPaths: string[];
+  collegeName: string;
+  collegeId: string;
+}
+
+export const PROGRAMS_DATA: Program[] = [
+  // Undergraduate Programs (UG)
+  {
+    id: 'btech-cse',
+    name: 'B.Tech in Computer Science & Engineering',
+    code: 'BTECH-CSE',
+    category: 'UG',
+    duration: '4 Years (8 Semesters)',
+    department: 'Engineering & Technology',
+    description: 'Comprehensive program covering software engineering, artificial intelligence, cloud computing, data structures, full-stack development, and cybersecurity.',
+    eligibility: '10+2 with Physics, Mathematics, and Chemistry/CS with minimum 45% aggregate marks (40% for SC/ST). AKTU Counseling / Direct Admission.',
+    feePerSemester: '₹42,500',
+    highlights: ['Specialized AI & ML Labs', 'Industry Internship & Mini-Projects', 'High Placement Record in Top Tech MNCs', 'Global Certifications Support'],
+    careerPaths: ['Software Engineer', 'Full Stack Developer', 'Data Analyst', 'Cloud Architect', 'System Engineer'],
+    collegeName: 'S.R. Group of Institutions (College of Engineering)',
+    collegeId: 'engineering'
+  },
+  {
+    id: 'btech-me',
+    name: 'B.Tech in Mechanical Engineering',
+    code: 'BTECH-ME',
+    category: 'UG',
+    duration: '4 Years (8 Semesters)',
+    department: 'Engineering & Technology',
+    description: 'Advanced curriculum in CAD/CAM design, robotics, thermodynamics, automotive engineering, manufacturing systems, and thermal power.',
+    eligibility: '10+2 with Physics, Mathematics, and Chemistry with minimum 45% aggregate marks.',
+    feePerSemester: '₹39,500',
+    highlights: ['Hands-on Workshop Labs', 'Robotics & Automation Cell', 'Industrial Visits to Manufacturing Units', 'GATE Coaching Support'],
+    careerPaths: ['Design Engineer', 'Production Manager', 'Robotics Specialist', 'Quality Control Analyst'],
+    collegeName: 'S.R. Group of Institutions (College of Engineering)',
+    collegeId: 'engineering'
+  },
+  {
+    id: 'btech-ece',
+    name: 'B.Tech in Electronics & Communication',
+    code: 'BTECH-ECE',
+    category: 'UG',
+    duration: '4 Years (8 Semesters)',
+    department: 'Engineering & Technology',
+    description: 'Study of VLSI design, embedded systems, IoT applications, telecommunications, signal processing, and robotics.',
+    eligibility: '10+2 with Physics & Math as compulsory subjects with 45% marks.',
+    feePerSemester: '₹39,500',
+    highlights: ['IoT & Embedded Systems Lab', 'VLSI Design Tools', 'Telecom Industry Projects'],
+    careerPaths: ['Embedded Systems Developer', 'Telecom Engineer', 'VLSI Design Engineer', 'IoT Specialist'],
+    collegeName: 'S.R. Group of Institutions (College of Engineering)',
+    collegeId: 'engineering'
+  },
+  {
+    id: 'btech-ce',
+    name: 'B.Tech in Civil Engineering',
+    code: 'BTECH-CE',
+    category: 'UG',
+    duration: '4 Years (8 Semesters)',
+    department: 'Engineering & Technology',
+    description: 'Focus on structural engineering, surveying, highway & transportation design, environmental systems, and smart city infrastructure.',
+    eligibility: '10+2 with Physics, Mathematics & Chemistry with minimum 45% marks.',
+    feePerSemester: '₹39,500',
+    highlights: ['Geotechnical & Material Testing Labs', 'AutoCAD & STAAD Pro Software Training', 'On-site Surveying Projects'],
+    careerPaths: ['Structural Engineer', 'Site Manager', 'Infrastructure Planner', 'Surveyor'],
+    collegeName: 'S.R. Group of Institutions (College of Engineering)',
+    collegeId: 'engineering'
+  },
+  {
+    id: 'bba',
+    name: 'Bachelor of Business Administration (BBA)',
+    code: 'BBA',
+    category: 'UG',
+    duration: '3 Years (6 Semesters)',
+    department: 'Management Studies',
+    description: 'Industry-focused management education developing leadership skills, marketing strategies, corporate finance, and entrepreneurial mindset.',
+    eligibility: '10+2 in any stream (Science, Commerce, Arts) with minimum 45% aggregate marks.',
+    feePerSemester: '₹22,500',
+    highlights: ['Corporate Internship Programs', 'Personality Development Workshops', 'Case Study Based Learning', 'Start-up Incubation Support'],
+    careerPaths: ['Business Executive', 'Marketing Analyst', 'HR Manager', 'Operations Executive', 'Entrepreneur'],
+    collegeName: 'S.R. Institute of Management & Technology',
+    collegeId: 'management'
+  },
+  {
+    id: 'bca',
+    name: 'Bachelor of Computer Applications (BCA)',
+    code: 'BCA',
+    category: 'UG',
+    duration: '3 Years (6 Semesters)',
+    department: 'Computer Applications',
+    description: 'Foundational degree in computer applications, web technology, database management, Java, Python, and software engineering.',
+    eligibility: '10+2 with Mathematics/Computer/IT as a subject with 45% aggregate marks.',
+    feePerSemester: '₹24,000',
+    highlights: ['Modern Computer Labs with Fiber Internet', 'Live Web & App Development Projects', 'Soft Skills & Interview Prep'],
+    careerPaths: ['Web Developer', 'Software Developer', 'Database Administrator', 'IT Support Specialist'],
+    collegeName: 'S.R. Institute of Management & Technology',
+    collegeId: 'management'
+  },
+  {
+    id: 'bpharm',
+    name: 'Bachelor of Pharmacy (B.Pharm)',
+    code: 'BPHARM',
+    category: 'UG',
+    duration: '4 Years (8 Semesters)',
+    department: 'Pharmaceutical Sciences',
+    description: 'PCI-approved comprehensive pharmaceutical education covering pharmacology, medicinal chemistry, pharmaceutics, and clinical trials.',
+    eligibility: '10+2 with PCB / PCM with minimum 50% aggregate marks. PCI eligibility guidelines apply.',
+    feePerSemester: '₹45,000',
+    highlights: ['PCI Approved Curriculum', 'Advanced Analytical Instrumentation Lab', 'Hospital & Pharmaceutical Industrial Training'],
+    careerPaths: ['Pharmacist', 'Quality Assurance Officer', 'Drug Inspector', 'Medical Research Analyst', 'Pharma Sales Executive'],
+    collegeName: 'S.R. College of Pharmacy',
+    collegeId: 'pharmacy'
+  },
+  {
+    id: 'bsc-agri',
+    name: 'B.Sc. (Hons.) Agriculture',
+    code: 'BSC-AGRI',
+    category: 'UG',
+    duration: '4 Years (8 Semesters)',
+    department: 'Agricultural Sciences',
+    description: 'Comprehensive study of modern agronomy, soil science, crop physiology, horticulture, organic farming, and agri-business management.',
+    eligibility: '10+2 with Physics, Chemistry, Biology / Mathematics / Agriculture with 45% aggregate marks.',
+    feePerSemester: '₹28,000',
+    highlights: ['Dedicated Experimental Research Farms', 'Soil Health Testing Lab', 'RAWE (Rural Agricultural Work Experience) Program'],
+    careerPaths: ['Agriculture Development Officer (ADO)', 'Agri-Business Manager', 'Soil Conservationist', 'Farm Manager', 'Research Associate'],
+    collegeName: 'S.R. College of Agriculture',
+    collegeId: 'agriculture'
+  },
+  {
+    id: 'ballb',
+    name: 'B.A. LL.B (Integrated)',
+    code: 'BALLB',
+    category: 'UG',
+    duration: '5 Years (10 Semesters)',
+    department: 'Legal Studies',
+    description: 'BCI-approved integrated 5-year law degree combining political science, sociology, constitutional law, corporate law, and advocacy skills.',
+    eligibility: '10+2 in any stream with minimum 45% aggregate (40% for SC/ST).',
+    feePerSemester: '₹25,000',
+    highlights: ['Moot Court Room Practice', 'Legal Aid Clinics & Internship', 'Sessions by Eminent High Court Advocates'],
+    careerPaths: ['Advocate / Corporate Lawyer', 'Legal Advisor', 'Judicial Services Officer', 'Compliance Officer'],
+    collegeName: 'S.R. College of Law',
+    collegeId: 'law'
+  },
+
+  // Postgraduate Programs (PG)
+  {
+    id: 'mca',
+    name: 'Master of Computer Applications (MCA)',
+    code: 'MCA',
+    category: 'PG',
+    duration: '2 Years (4 Semesters)',
+    department: 'Computer Applications',
+    description: 'Advanced degree focusing on enterprise application development, cloud architecture, machine learning, DevOps, and mobile computing.',
+    eligibility: 'Graduation (BCA / B.Sc. CS / B.Tech or equivalent) with minimum 50% aggregate (45% for reserved category).',
+    feePerSemester: '₹35,000',
+    highlights: ['Industry-level Capstone Projects', 'Cloud Infrastructure Access (AWS/Azure)', 'High Tier Placement Pipeline'],
+    careerPaths: ['Senior Software Architect', 'DevOps Specialist', 'AI Developer', 'Database Architect'],
+    collegeName: 'S.R. Institute of Management & Technology',
+    collegeId: 'management'
+  },
+  {
+    id: 'mba',
+    name: 'Master of Business Administration (MBA)',
+    code: 'MBA',
+    category: 'PG',
+    duration: '2 Years (4 Semesters)',
+    department: 'Management Studies',
+    description: 'Premier management program with specializations in Marketing, Finance, Human Resources, Information Technology, and International Business.',
+    eligibility: 'Bachelor degree in any discipline with minimum 50% aggregate marks (45% for SC/ST).',
+    feePerSemester: '₹41,000',
+    highlights: ['Dual Specialization Option', 'Executive Leadership Mentorship', 'Live Corporate Consulting Projects', '100% Placement Support'],
+    careerPaths: ['Marketing Manager', 'Financial Analyst', 'HR Business Partner', 'Business Consultant', 'Operations Director'],
+    collegeName: 'S.R. Institute of Management & Technology',
+    collegeId: 'management'
+  },
+  {
+    id: 'llb',
+    name: 'LL.B. (3 Years)',
+    code: 'LLB',
+    category: 'PG',
+    duration: '3 Years (6 Semesters)',
+    department: 'Legal Studies',
+    description: 'Professional law degree designed for graduates seeking a career in legal practice, judicial services, or corporate law consultancy.',
+    eligibility: 'Graduation in any discipline with minimum 45% aggregate marks.',
+    feePerSemester: '₹22,000',
+    highlights: ['Bar Council of India Approved', 'Court Visit Training Programs', 'Criminal & Civil Law Drafting Workshops'],
+    careerPaths: ['Legal Practitioner', 'Corporate Legal Consultant', 'Public Prosecutor Prep', 'Arbitrator'],
+    collegeName: 'S.R. College of Law',
+    collegeId: 'law'
+  },
+  {
+    id: 'msc-agri',
+    name: 'M.Sc. Agriculture (General)',
+    code: 'MSC-AGRI',
+    category: 'PG',
+    duration: '2 Years (4 Semesters)',
+    department: 'Agricultural Sciences',
+    description: 'Advanced postgraduate research in modern agricultural methodologies, seed technology, and sustainable farming systems.',
+    eligibility: 'B.Sc. Agriculture (Hons.) or equivalent with minimum 50% marks.',
+    feePerSemester: '₹32,000',
+    highlights: ['Research Thesis Component', 'Advanced Biotechnology Farm Facilities', 'Publication Support'],
+    careerPaths: ['Agricultural Research Scientist', 'Assistant Professor', 'Agronomist Specialist'],
+    collegeName: 'S.R. College of Agriculture',
+    collegeId: 'agriculture'
+  },
+  {
+    id: 'msc-soil-science',
+    name: 'M.Sc. Soil Science',
+    code: 'MSC-SOIL',
+    category: 'PG',
+    duration: '2 Years (4 Semesters)',
+    department: 'Agricultural Sciences',
+    description: 'Specialized study in soil chemistry, soil microbiology, fertility management, environmental impact assessment, and soil physics.',
+    eligibility: 'B.Sc. Agriculture / Forestry / Allied Sciences with minimum 50% aggregate.',
+    feePerSemester: '₹32,000',
+    highlights: ['State-of-the-Art Chemical Analysis Lab', 'Government Soil Survey Collaborations', 'Research Publications'],
+    careerPaths: ['Soil Chemist', 'Environmental Consultant', 'Fertilizer Quality Controller'],
+    collegeName: 'S.R. College of Agriculture',
+    collegeId: 'agriculture'
+  },
+  {
+    id: 'msc-horticulture',
+    name: 'M.Sc. Horticulture',
+    code: 'MSC-HORTI',
+    category: 'PG',
+    duration: '2 Years (4 Semesters)',
+    department: 'Agricultural Sciences',
+    description: 'Specialized study in fruit crops, vegetable science, floriculture, landscape architecture, and post-harvest technology.',
+    eligibility: 'B.Sc. Agriculture / B.Sc. Horticulture with minimum 50% aggregate.',
+    feePerSemester: '₹32,000',
+    highlights: ['Polyhouse & Greenhouse Experimental Units', 'Landscape Design Studio', 'Tissue Culture Lab'],
+    careerPaths: ['Horticultural Officer', 'Landscape Architect Consultant', 'Floriculture Manager'],
+    collegeName: 'S.R. College of Agriculture',
+    collegeId: 'agriculture'
+  },
+  {
+    id: 'msc-agronomy',
+    name: 'M.Sc. Agronomy',
+    code: 'MSC-AGRO',
+    category: 'PG',
+    duration: '2 Years (4 Semesters)',
+    department: 'Agricultural Sciences',
+    description: 'Focused research program on crop management systems, weed management, water management, and organic farming techniques.',
+    eligibility: 'B.Sc. Agriculture (Hons.) with minimum 50% aggregate marks.',
+    feePerSemester: '₹32,000',
+    highlights: ['Experimental Plot Allocation', 'Precision Agriculture Tools', 'ICAR Aligned Curriculum'],
+    careerPaths: ['Agronomist Officer', 'Seed Tech Specialist', 'Research Officer'],
+    collegeName: 'S.R. College of Agriculture',
+    collegeId: 'agriculture'
+  },
+  {
+    id: 'mpharm',
+    name: 'Master of Pharmacy (M.Pharm)',
+    code: 'MPHARM',
+    category: 'PG',
+    duration: '2 Years (4 Semesters)',
+    department: 'Pharmaceutical Sciences',
+    description: 'Postgraduate specialization in Pharmaceutics and Pharmacology featuring advanced drug delivery design and pharmacological screening.',
+    eligibility: 'B.Pharm with minimum 55% marks (50% for SC/ST). GPAT qualified candidates preferred.',
+    feePerSemester: '₹48,000',
+    highlights: ['Research Thesis & Journal Publications', 'Advanced HPLC & UV Spectroscopy', 'Pharma R&D Lab Access'],
+    careerPaths: ['R&D Scientist', 'Formulation Developer', 'Clinical Research Associate', 'Assistant Professor'],
+    collegeName: 'S.R. College of Pharmacy',
+    collegeId: 'pharmacy'
+  },
+
+  // Diploma Programs
+  {
+    id: 'polytechnic-me',
+    name: 'Polytechnic Diploma in Mechanical Engineering',
+    code: 'DIPLOMA-ME',
+    category: 'Diploma',
+    duration: '3 Years (6 Semesters)',
+    department: 'Polytechnic & Skill Development',
+    description: 'Practical technical training in machine tools, manufacturing processes, thermal engineering, and CAD drafting.',
+    eligibility: '10th Pass with Science and Mathematics from recognized Board.',
+    feePerSemester: '₹18,000',
+    highlights: ['State Board of Technical Education (BTEUP) Approved', 'Hands-on Workshop Machining', 'Direct Lateral Entry to B.Tech 2nd Year'],
+    careerPaths: ['Junior Engineer (JE)', 'CAD Operator', 'Maintenance Supervisor', 'Quality Inspector'],
+    collegeName: 'S.R. Polytechnic & Skill Development',
+    collegeId: 'polytechnic'
+  },
+  {
+    id: 'polytechnic-ee',
+    name: 'Polytechnic Diploma in Electrical Engineering',
+    code: 'DIPLOMA-EE',
+    category: 'Diploma',
+    duration: '3 Years (6 Semesters)',
+    department: 'Polytechnic & Skill Development',
+    description: 'Hands-on foundation in electrical machines, power systems, wiring installation, electronics, and control panels.',
+    eligibility: '10th Pass with Science & Math with minimum 35% aggregate marks.',
+    feePerSemester: '₹18,000',
+    highlights: ['Electrical Testing Lab', 'Power Station Industrial Visits', 'BTEUP Approved'],
+    careerPaths: ['Electrical Supervisor', 'JE in Power Grid / State Electricity Board', 'Panel Designer'],
+    collegeName: 'S.R. Polytechnic & Skill Development',
+    collegeId: 'polytechnic'
+  },
+  {
+    id: 'polytechnic-ce',
+    name: 'Polytechnic Diploma in Civil Engineering',
+    code: 'DIPLOMA-CE',
+    category: 'Diploma',
+    duration: '3 Years (6 Semesters)',
+    department: 'Polytechnic & Skill Development',
+    description: 'Practical field training in land surveying, construction materials, building drawing, and concrete technology.',
+    eligibility: '10th Pass with Science & Math from recognized board.',
+    feePerSemester: '₹18,000',
+    highlights: ['Field Surveying & Total Station Training', 'Material Testing Lab', 'Site Visits'],
+    careerPaths: ['Junior Civil Engineer', 'Site Overseer', 'Draftsman'],
+    collegeName: 'S.R. Polytechnic & Skill Development',
+    collegeId: 'polytechnic'
+  },
+  {
+    id: 'polytechnic-cs',
+    name: 'Polytechnic Diploma in Computer Science',
+    code: 'DIPLOMA-CS',
+    category: 'Diploma',
+    duration: '3 Years (6 Semesters)',
+    department: 'Polytechnic & Skill Development',
+    description: 'Practical curriculum covering C/C++, web design, hardware networking, database basics, and operating systems.',
+    eligibility: '10th Pass with Science & Math from recognized board.',
+    feePerSemester: '₹18,000',
+    highlights: ['Computer Lab & Networking Training', 'Website Development Basics', 'Junior Tech Placement Support'],
+    careerPaths: ['Technical Assistant', 'Network Support Executive', 'Junior Web Developer'],
+    collegeName: 'S.R. Polytechnic & Skill Development',
+    collegeId: 'polytechnic'
+  }
+];
