@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { SectionHeading } from '../components/SectionHeading';
 import {
   Building2,
@@ -64,10 +65,15 @@ export const CampusLife: React.FC<CampusLifeProps> = ({ onOpenApplyModal }) => {
   return (
     <div className="space-y-0">
       {/* Hero */}
-      <section className="bg-[#123B6D] text-white py-16 lg:py-24">
+      <section className="bg-[#123B6D] text-white py-16 lg:py-24 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl space-y-4">
-            <span className="px-3 py-1 bg-white/10 text-amber-300 rounded-full text-xs font-bold uppercase tracking-wider">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
+            className="max-w-3xl space-y-4"
+          >
+            <span className="px-3.5 py-1 bg-white/10 backdrop-blur-md text-amber-300 rounded-full text-xs font-bold uppercase tracking-wider border border-white/15">
               Student Experience
             </span>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-heading tracking-tight">
@@ -76,12 +82,18 @@ export const CampusLife: React.FC<CampusLifeProps> = ({ onOpenApplyModal }) => {
             <p className="text-base sm:text-lg text-slate-200 leading-relaxed">
               Explore our 80-acre green campus, modern residential facilities, state-of-the-art laboratories, digital library, and vibrant student activities.
             </p>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Facilities Grid */}
-      <section className="py-20 bg-slate-50">
+      <motion.section
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, ease: 'easeOut' }}
+        className="py-20 bg-slate-50/70"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             badge="Infrastructure & Amenities"
@@ -90,21 +102,25 @@ export const CampusLife: React.FC<CampusLifeProps> = ({ onOpenApplyModal }) => {
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {facilities.map((fac) => {
+            {facilities.map((fac, idx) => {
               const Icon = fac.icon;
               return (
-                <div
+                <motion.div
                   key={fac.id}
                   id={fac.id}
-                  className="bg-white rounded-2xl border border-slate-200/80 overflow-hidden shadow-subtle hover:shadow-card-hover transition-all duration-300 group hover:-translate-y-1"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: (idx % 3) * 0.1, ease: 'easeOut' }}
+                  className="glass-card rounded-2xl border border-white/60 overflow-hidden shadow-subtle hover:shadow-card-hover transition-all duration-300 group hover-lift"
                 >
-                  <div className="relative h-48 overflow-hidden bg-slate-100">
+                  <div className="relative h-48 overflow-hidden bg-slate-100/60">
                     <img
                       src={fac.image}
                       alt={fac.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    <div className="absolute top-4 left-4 p-2.5 bg-[#123B6D] text-white rounded-xl shadow">
+                    <div className="absolute top-4 left-4 p-2.5 bg-[#123B6D]/90 backdrop-blur-md text-white rounded-xl shadow border border-white/20">
                       <Icon className="w-5 h-5" />
                     </div>
                   </div>
@@ -114,12 +130,12 @@ export const CampusLife: React.FC<CampusLifeProps> = ({ onOpenApplyModal }) => {
                     </h3>
                     <p className="text-xs text-slate-600 leading-relaxed">{fac.desc}</p>
                   </div>
-                </div>
+                </motion.div>
               );
             })}
           </div>
         </div>
-      </section>
+      </motion.section>
     </div>
   );
 };

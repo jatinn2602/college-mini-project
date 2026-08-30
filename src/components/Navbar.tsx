@@ -77,8 +77,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenApplyModal }) => {
     <>
       <header
         className={`sticky top-0 z-40 transition-all duration-300 ${isScrolled
-            ? 'glass-nav shadow-lg border-b border-slate-200/80 py-3'
-            : 'bg-white border-b border-slate-200/50 py-4'
+            ? 'glass-nav shadow-lg border-b border-slate-200/80 py-2'
+            : 'bg-white border-b border-slate-200/50 py-2'
           }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -104,7 +104,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenApplyModal }) => {
                     <div className="flex items-center">
                       <Link
                         to={item.path}
-                        className={`px-3 py-2 rounded-lg text-sm font-semibold transition-all duration-150 flex items-center space-x-1 ${isActive
+                        className={`px-3 py-1 rounded-lg text-sm font-semibold transition-all duration-150 flex items-center space-x-1 ${isActive
                             ? 'text-[#123B6D] bg-slate-100'
                             : 'text-slate-700 hover:text-[#123B6D] hover:bg-slate-50'
                           }`}

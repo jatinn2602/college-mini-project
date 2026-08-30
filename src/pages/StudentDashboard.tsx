@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate, Link, Routes, Route } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { useAuth } from '../context/AuthContext';
 import { 
   getStudentAttendance, 
@@ -384,7 +385,12 @@ export const StudentDashboard: React.FC = () => {
             <Routes>
               {/* 1. Overview */}
               <Route path="/" element={
-                <div className="space-y-6">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, ease: 'easeOut' }}
+                  className="space-y-6"
+                >
                   {/* Student Profile Card Header */}
                   <div className="bg-gradient-to-r from-slate-900 via-[#123B6D] to-slate-900 border border-slate-800 rounded-2xl p-6 relative overflow-hidden shadow-xl">
                     <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 relative z-10">
@@ -423,7 +429,7 @@ export const StudentDashboard: React.FC = () => {
                   {/* Next Lecture & Today's Overview Widget Row */}
                   <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                     {/* Dynamic NEXT LECTURE Card */}
-                    <div className="lg:col-span-1 bg-gradient-to-br from-slate-900 via-amber-950/20 to-slate-900 border border-amber-500/30 rounded-2xl p-5 space-y-4 shadow-lg relative overflow-hidden flex flex-col justify-between">
+                    <div className="lg:col-span-1 bg-slate-900/85 backdrop-blur-xl border border-amber-500/40 rounded-2xl p-5 space-y-4 shadow-xl relative overflow-hidden flex flex-col justify-between hover-lift">
                       <div className="flex items-center justify-between border-b border-amber-500/20 pb-3">
                         <div className="flex items-center gap-2 text-amber-400 font-extrabold text-sm uppercase tracking-wider">
                           <Clock3 className="w-5 h-5 animate-pulse" />
@@ -479,7 +485,7 @@ export const StudentDashboard: React.FC = () => {
 
                       <Link 
                         to="/student-dashboard/timetable" 
-                        className="inline-flex items-center justify-center gap-2 w-full py-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold rounded-xl text-xs transition-all shadow-md mt-auto"
+                        className="inline-flex items-center justify-center gap-2 w-full py-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold rounded-xl text-xs transition-all shadow-md mt-auto hover-lift"
                       >
                         <span>View Full Timetable</span>
                         <ChevronRight className="w-4 h-4" />
@@ -487,7 +493,7 @@ export const StudentDashboard: React.FC = () => {
                     </div>
 
                     {/* Today's Lectures Summary List (2 Cols) */}
-                    <div className="lg:col-span-2 bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4 flex flex-col justify-between">
+                    <div className="lg:col-span-2 bg-slate-900/85 backdrop-blur-xl border border-slate-800 rounded-2xl p-5 space-y-4 flex flex-col justify-between shadow-lg">
                       <div className="flex justify-between items-center border-b border-slate-800 pb-3">
                         <div className="flex items-center gap-2">
                           <Calendar className="w-5 h-5 text-amber-400" />
@@ -508,12 +514,12 @@ export const StudentDashboard: React.FC = () => {
                               <div 
                                 key={lec.id} 
                                 onClick={() => setSelectedLectureDetail(lec)}
-                                className={`p-3.5 rounded-xl border transition-all cursor-pointer space-y-2 ${
+                                className={`p-3.5 rounded-xl border transition-all cursor-pointer space-y-2 hover-lift ${
                                   status === 'ongoing' 
-                                    ? 'bg-amber-950/30 border-amber-500/60 shadow-lg shadow-amber-500/10' 
+                                    ? 'bg-amber-950/40 border-amber-500/70 shadow-lg shadow-amber-500/10 backdrop-blur-md' 
                                     : status === 'completed'
                                     ? 'bg-slate-950/40 border-slate-800/80 opacity-75'
-                                    : 'bg-slate-950/80 border-slate-800 hover:border-slate-700'
+                                    : 'bg-slate-950/70 border-slate-800 hover:border-slate-700 backdrop-blur-md'
                                 }`}
                               >
                                 <div className="flex items-center justify-between">
@@ -557,7 +563,7 @@ export const StudentDashboard: React.FC = () => {
 
                   {/* Stat Cards Grid */}
                   <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-                    <div className="bg-slate-900 border border-slate-800 rounded-xl p-4 space-y-1">
+                    <div className="bg-slate-900/80 backdrop-blur-md border border-slate-800 rounded-xl p-4 space-y-1 hover-lift">
                       <p className="text-xs text-slate-400 font-medium">Attendance</p>
                       <p className={`text-2xl font-extrabold ${attendancePercentage >= 75 ? 'text-emerald-400' : 'text-red-400'}`}>
                         {attendancePercentage}%
@@ -565,7 +571,7 @@ export const StudentDashboard: React.FC = () => {
                       <p className="text-[10px] text-slate-500">Min. req: 75%</p>
                     </div>
 
-                    <div className="bg-slate-900 border border-slate-800 rounded-xl p-4 space-y-1">
+                    <div className="bg-slate-900/80 backdrop-blur-md border border-slate-800 rounded-xl p-4 space-y-1 hover-lift">
                       <p className="text-xs text-slate-400 font-medium">Today's Classes</p>
                       <p className="text-2xl font-extrabold text-amber-400">
                         {todaysTimetable.length}
@@ -573,7 +579,7 @@ export const StudentDashboard: React.FC = () => {
                       <p className="text-[10px] text-slate-500">Scheduled for today</p>
                     </div>
 
-                    <div className="bg-slate-900 border border-slate-800 rounded-xl p-4 space-y-1">
+                    <div className="bg-slate-900/80 backdrop-blur-md border border-slate-800 rounded-xl p-4 space-y-1 hover-lift">
                       <p className="text-xs text-slate-400 font-medium">Due Fees</p>
                       <p className={`text-2xl font-extrabold ${totalFeeDue > 0 ? 'text-amber-400' : 'text-emerald-400'}`}>
                         ₹{totalFeeDue.toLocaleString()}
@@ -581,30 +587,35 @@ export const StudentDashboard: React.FC = () => {
                       <p className="text-[10px] text-slate-500">{totalFeeDue > 0 ? 'Pending payment' : 'Fully paid'}</p>
                     </div>
 
-                    <div className="bg-slate-900 border border-slate-800 rounded-xl p-4 space-y-1">
+                    <div className="bg-slate-900/80 backdrop-blur-md border border-slate-800 rounded-xl p-4 space-y-1 hover-lift">
                       <p className="text-xs text-slate-400 font-medium">Library Books</p>
                       <p className="text-2xl font-extrabold text-blue-400">{issuedBooksCount}</p>
                       <p className="text-[10px] text-slate-500">Currently issued</p>
                     </div>
 
-                    <div className="bg-slate-900 border border-slate-800 rounded-xl p-4 space-y-1">
+                    <div className="bg-slate-900/80 backdrop-blur-md border border-slate-800 rounded-xl p-4 space-y-1 hover-lift">
                       <p className="text-xs text-slate-400 font-medium">Test Average</p>
                       <p className="text-2xl font-extrabold text-purple-400">{testAveragePercentage}%</p>
                       <p className="text-[10px] text-slate-500">Sessional score</p>
                     </div>
 
-                    <div className="bg-slate-900 border border-slate-800 rounded-xl p-4 space-y-1">
+                    <div className="bg-slate-900/80 backdrop-blur-md border border-slate-800 rounded-xl p-4 space-y-1 hover-lift">
                       <p className="text-xs text-slate-400 font-medium">Assignments</p>
                       <p className="text-2xl font-extrabold text-cyan-400">{pendingAssignmentsCount}</p>
                       <p className="text-[10px] text-slate-500">Action pending</p>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               } />
 
               {/* 2. Profile */}
               <Route path="/profile" element={
-                <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-6">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, ease: 'easeOut' }}
+                  className="bg-slate-900/85 backdrop-blur-xl border border-slate-800 rounded-2xl p-6 space-y-6 shadow-xl"
+                >
                   <div className="border-b border-slate-800 pb-4">
                     <h2 className="text-xl font-bold text-white flex items-center gap-2">
                       <User className="w-5 h-5 text-amber-400" />
@@ -676,12 +687,17 @@ export const StudentDashboard: React.FC = () => {
                       </div>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               } />
 
               {/* 3. Timetable Page */}
               <Route path="/timetable" element={
-                <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-6">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, ease: 'easeOut' }}
+                  className="bg-slate-900/85 backdrop-blur-xl border border-slate-800 rounded-2xl p-6 space-y-6 shadow-xl"
+                >
                   {/* Timetable Header Card */}
                   <div className="bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 border border-amber-500/20 rounded-xl p-5 space-y-4 shadow-md">
                     <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-4">
@@ -1001,12 +1017,17 @@ export const StudentDashboard: React.FC = () => {
                       )}
                     </div>
                   )}
-                </div>
+                </motion.div>
               } />
 
               {/* 4. Lectures List */}
               <Route path="/lectures" element={
-                <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-6">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, ease: 'easeOut' }}
+                  className="bg-slate-900/85 backdrop-blur-xl border border-slate-800 rounded-2xl p-6 space-y-6 shadow-xl"
+                >
                   <div className="border-b border-slate-800 pb-4">
                     <h2 className="text-xl font-bold text-white flex items-center gap-2">
                       <Clock className="w-5 h-5 text-amber-400" />
@@ -1039,12 +1060,17 @@ export const StudentDashboard: React.FC = () => {
                       ))}
                     </div>
                   )}
-                </div>
+                </motion.div>
               } />
 
               {/* 5. Attendance */}
               <Route path="/attendance" element={
-                <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-6">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, ease: 'easeOut' }}
+                  className="bg-slate-900/85 backdrop-blur-xl border border-slate-800 rounded-2xl p-6 space-y-6 shadow-xl"
+                >
                   <div className="border-b border-slate-800 pb-4">
                     <h2 className="text-xl font-bold text-white flex items-center gap-2">
                       <CheckSquare className="w-5 h-5 text-amber-400" />
@@ -1105,12 +1131,17 @@ export const StudentDashboard: React.FC = () => {
                       </table>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               } />
 
               {/* 6. Fees */}
               <Route path="/fees" element={
-                <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-6">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, ease: 'easeOut' }}
+                  className="bg-slate-900/85 backdrop-blur-xl border border-slate-800 rounded-2xl p-6 space-y-6 shadow-xl"
+                >
                   <div className="border-b border-slate-800 pb-4">
                     <h2 className="text-xl font-bold text-white flex items-center gap-2">
                       <CreditCard className="w-5 h-5 text-amber-400" />
@@ -1164,12 +1195,17 @@ export const StudentDashboard: React.FC = () => {
                       ))}
                     </div>
                   </div>
-                </div>
+                </motion.div>
               } />
 
               {/* 7. Library */}
               <Route path="/library" element={
-                <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-6">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, ease: 'easeOut' }}
+                  className="bg-slate-900/85 backdrop-blur-xl border border-slate-800 rounded-2xl p-6 space-y-6 shadow-xl"
+                >
                   <div className="border-b border-slate-800 pb-4">
                     <h2 className="text-xl font-bold text-white flex items-center gap-2">
                       <BookOpen className="w-5 h-5 text-amber-400" />
@@ -1201,12 +1237,17 @@ export const StudentDashboard: React.FC = () => {
                       ))}
                     </div>
                   )}
-                </div>
+                </motion.div>
               } />
 
               {/* 8. Class Tests */}
               <Route path="/class-tests" element={
-                <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-6">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, ease: 'easeOut' }}
+                  className="bg-slate-900/85 backdrop-blur-xl border border-slate-800 rounded-2xl p-6 space-y-6 shadow-xl"
+                >
                   <div className="border-b border-slate-800 pb-4">
                     <h2 className="text-xl font-bold text-white flex items-center gap-2">
                       <FileText className="w-5 h-5 text-amber-400" />
@@ -1232,12 +1273,17 @@ export const StudentDashboard: React.FC = () => {
                       );
                     })}
                   </div>
-                </div>
+                </motion.div>
               } />
 
               {/* 9. Results */}
               <Route path="/results" element={
-                <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-6">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, ease: 'easeOut' }}
+                  className="bg-slate-900/85 backdrop-blur-xl border border-slate-800 rounded-2xl p-6 space-y-6 shadow-xl"
+                >
                   <div className="border-b border-slate-800 pb-4">
                     <h2 className="text-xl font-bold text-white flex items-center gap-2">
                       <Award className="w-5 h-5 text-amber-400" />
@@ -1272,12 +1318,17 @@ export const StudentDashboard: React.FC = () => {
                       </tbody>
                     </table>
                   </div>
-                </div>
+                </motion.div>
               } />
 
               {/* 10. Assignments */}
               <Route path="/assignments" element={
-                <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-6">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, ease: 'easeOut' }}
+                  className="bg-slate-900/85 backdrop-blur-xl border border-slate-800 rounded-2xl p-6 space-y-6 shadow-xl"
+                >
                   <div className="border-b border-slate-800 pb-4">
                     <h2 className="text-xl font-bold text-white flex items-center gap-2">
                       <Book className="w-5 h-5 text-amber-400" />
@@ -1304,12 +1355,17 @@ export const StudentDashboard: React.FC = () => {
                       </div>
                     ))}
                   </div>
-                </div>
+                </motion.div>
               } />
 
               {/* 11. Notices */}
               <Route path="/notices" element={
-                <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-6">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, ease: 'easeOut' }}
+                  className="bg-slate-900/85 backdrop-blur-xl border border-slate-800 rounded-2xl p-6 space-y-6 shadow-xl"
+                >
                   <div className="border-b border-slate-800 pb-4">
                     <h2 className="text-xl font-bold text-white flex items-center gap-2">
                       <Bell className="w-5 h-5 text-amber-400" />
@@ -1332,7 +1388,7 @@ export const StudentDashboard: React.FC = () => {
                       </div>
                     ))}
                   </div>
-                </div>
+                </motion.div>
               } />
             </Routes>
           )}

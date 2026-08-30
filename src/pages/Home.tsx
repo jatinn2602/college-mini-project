@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import {
   ArrowRight,
   GraduationCap,
@@ -75,7 +76,12 @@ export const Home: React.FC<HomeProps> = ({ onOpenApplyModal }) => {
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28 text-white">
-          <div className="max-w-3xl space-y-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+            className="max-w-3xl space-y-6"
+          >
             {/* Tag Badge */}
             <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs font-semibold text-amber-300">
               <Sparkles className="w-3.5 h-3.5 text-[#F59E0B]" />
@@ -97,7 +103,7 @@ export const Home: React.FC<HomeProps> = ({ onOpenApplyModal }) => {
             <div className="pt-4 flex flex-wrap items-center gap-4">
               <Link
                 to="/academics"
-                className="px-7 py-3.5 bg-white text-[#123B6D] hover:bg-slate-100 font-bold text-sm uppercase tracking-wider rounded-xl shadow-lg transition-all duration-200 flex items-center space-x-2 cursor-pointer"
+                className="px-7 py-3.5 bg-white text-[#123B6D] hover:bg-slate-100 font-bold text-sm uppercase tracking-wider rounded-xl shadow-lg transition-all duration-200 flex items-center space-x-2 cursor-pointer hover-lift"
               >
                 <span>Explore Programs</span>
                 <ArrowRight className="w-4 h-4" />
@@ -105,7 +111,7 @@ export const Home: React.FC<HomeProps> = ({ onOpenApplyModal }) => {
 
               <button
                 onClick={() => onOpenApplyModal()}
-                className="px-7 py-3.5 bg-[#F59E0B] hover:bg-[#D97706] text-slate-950 font-extrabold text-sm uppercase tracking-wider rounded-xl shadow-lg transition-all duration-200 flex items-center space-x-2 cursor-pointer"
+                className="px-7 py-3.5 bg-[#F59E0B] hover:bg-[#D97706] text-slate-950 font-extrabold text-sm uppercase tracking-wider rounded-xl shadow-lg transition-all duration-200 flex items-center space-x-2 cursor-pointer hover-lift"
               >
                 <span>Apply Now 2026-27</span>
               </button>
@@ -132,7 +138,7 @@ export const Home: React.FC<HomeProps> = ({ onOpenApplyModal }) => {
                 <div className="text-xs text-slate-300 font-medium">Recruiting Companies</div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -158,7 +164,13 @@ export const Home: React.FC<HomeProps> = ({ onOpenApplyModal }) => {
       </section>
 
       {/* ================= WHY SRGI ================= */}
-      <section className="py-20 bg-slate-50">
+      <motion.section
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.55, ease: 'easeOut' }}
+        className="py-20 bg-slate-50/70"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             badge="Institutional Pillars"
@@ -168,8 +180,14 @@ export const Home: React.FC<HomeProps> = ({ onOpenApplyModal }) => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* Feature 1 */}
-            <div className="bg-white p-7 rounded-2xl border border-slate-200/80 shadow-subtle hover:shadow-card-hover transition-all duration-300 group hover:-translate-y-1">
-              <div className="w-12 h-12 bg-blue-50 text-[#123B6D] rounded-xl flex items-center justify-center mb-5 group-hover:bg-[#123B6D] group-hover:text-white transition-colors duration-300">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0 }}
+              className="glass-card p-7 rounded-2xl border border-white/60 shadow-subtle hover:shadow-xl transition-all duration-300 group hover:-translate-y-1.5"
+            >
+              <div className="w-12 h-12 bg-blue-50/80 text-[#123B6D] rounded-xl flex items-center justify-center mb-5 group-hover:bg-[#123B6D] group-hover:text-white transition-colors duration-300">
                 <Building2 className="w-6 h-6" />
               </div>
               <h3 className="text-lg font-bold text-slate-900 font-heading mb-2">
@@ -178,11 +196,17 @@ export const Home: React.FC<HomeProps> = ({ onOpenApplyModal }) => {
               <p className="text-sm text-slate-600 leading-relaxed">
                 Spread across an 80-acre green campus with state-of-the-art computer labs, high-tech engineering workshops, smart classrooms, and research centers.
               </p>
-            </div>
+            </motion.div>
 
             {/* Feature 2 */}
-            <div className="bg-white p-7 rounded-2xl border border-slate-200/80 shadow-subtle hover:shadow-card-hover transition-all duration-300 group hover:-translate-y-1">
-              <div className="w-12 h-12 bg-teal-50 text-[#0F766E] rounded-xl flex items-center justify-center mb-5 group-hover:bg-[#0F766E] group-hover:text-white transition-colors duration-300">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.1 }}
+              className="glass-card p-7 rounded-2xl border border-white/60 shadow-subtle hover:shadow-xl transition-all duration-300 group hover:-translate-y-1.5"
+            >
+              <div className="w-12 h-12 bg-teal-50/80 text-[#0F766E] rounded-xl flex items-center justify-center mb-5 group-hover:bg-[#0F766E] group-hover:text-white transition-colors duration-300">
                 <BookOpen className="w-6 h-6" />
               </div>
               <h3 className="text-lg font-bold text-slate-900 font-heading mb-2">
@@ -191,11 +215,17 @@ export const Home: React.FC<HomeProps> = ({ onOpenApplyModal }) => {
               <p className="text-sm text-slate-600 leading-relaxed">
                 Curriculum approved by AICTE, PCI, and BCI, integrated with practical live projects, corporate mentorship, and technical workshops.
               </p>
-            </div>
+            </motion.div>
 
             {/* Feature 3 */}
-            <div className="bg-white p-7 rounded-2xl border border-slate-200/80 shadow-subtle hover:shadow-card-hover transition-all duration-300 group hover:-translate-y-1">
-              <div className="w-12 h-12 bg-amber-50 text-[#D97706] rounded-xl flex items-center justify-center mb-5 group-hover:bg-[#F59E0B] group-hover:text-slate-950 transition-colors duration-300">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.2 }}
+              className="glass-card p-7 rounded-2xl border border-white/60 shadow-subtle hover:shadow-xl transition-all duration-300 group hover:-translate-y-1.5"
+            >
+              <div className="w-12 h-12 bg-amber-50/80 text-[#D97706] rounded-xl flex items-center justify-center mb-5 group-hover:bg-[#F59E0B] group-hover:text-slate-950 transition-colors duration-300">
                 <Users className="w-6 h-6" />
               </div>
               <h3 className="text-lg font-bold text-slate-900 font-heading mb-2">
@@ -204,11 +234,17 @@ export const Home: React.FC<HomeProps> = ({ onOpenApplyModal }) => {
               <p className="text-sm text-slate-600 leading-relaxed">
                 Home to over 12,000 students from diverse regions, fostering collaborative learning, cultural events, sports meets, and student clubs.
               </p>
-            </div>
+            </motion.div>
 
             {/* Feature 4 */}
-            <div className="bg-white p-7 rounded-2xl border border-slate-200/80 shadow-subtle hover:shadow-card-hover transition-all duration-300 group hover:-translate-y-1">
-              <div className="w-12 h-12 bg-indigo-50 text-[#1E4D8C] rounded-xl flex items-center justify-center mb-5 group-hover:bg-[#1E4D8C] group-hover:text-white transition-colors duration-300">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.3 }}
+              className="glass-card p-7 rounded-2xl border border-white/60 shadow-subtle hover:shadow-xl transition-all duration-300 group hover:-translate-y-1.5"
+            >
+              <div className="w-12 h-12 bg-indigo-50/80 text-[#1E4D8C] rounded-xl flex items-center justify-center mb-5 group-hover:bg-[#1E4D8C] group-hover:text-white transition-colors duration-300">
                 <Briefcase className="w-6 h-6" />
               </div>
               <h3 className="text-lg font-bold text-slate-900 font-heading mb-2">
@@ -217,13 +253,19 @@ export const Home: React.FC<HomeProps> = ({ onOpenApplyModal }) => {
               <p className="text-sm text-slate-600 leading-relaxed">
                 Dedicated Training & Placement Cell providing 100% placement assistance, soft skills training, mock interviews, and access to 200+ top recruiters.
               </p>
-            </div>
+            </motion.div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* ================= PROGRAM DISCOVERY SECTION ================= */}
-      <section className="py-20 bg-white border-t border-slate-200/60">
+      <motion.section
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.55, ease: 'easeOut' }}
+        className="py-20 bg-white border-t border-slate-200/60"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             badge="Academic Offerings"
@@ -243,16 +285,17 @@ export const Home: React.FC<HomeProps> = ({ onOpenApplyModal }) => {
           {/* Course Cards Grid */}
           {filteredPrograms.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredPrograms.slice(0, 6).map((prog) => (
+              {filteredPrograms.slice(0, 6).map((prog, idx) => (
                 <ProgramCard
                   key={prog.id}
                   program={prog}
                   onApply={onOpenApplyModal}
+                  index={idx}
                 />
               ))}
             </div>
           ) : (
-            <div className="bg-slate-50 border border-dashed border-slate-300 rounded-2xl p-12 text-center max-w-md mx-auto">
+            <div className="glass-card border border-dashed border-slate-300 rounded-2xl p-12 text-center max-w-md mx-auto">
               <Search className="w-10 h-10 text-slate-400 mx-auto mb-3" />
               <h4 className="text-lg font-bold text-slate-800 font-heading">
                 No programs found
@@ -265,7 +308,7 @@ export const Home: React.FC<HomeProps> = ({ onOpenApplyModal }) => {
                   setSearchQuery('');
                   setSelectedCategory('All');
                 }}
-                className="mt-4 px-4 py-2 bg-[#123B6D] text-white text-xs font-semibold rounded-lg"
+                className="mt-4 px-4 py-2 bg-[#123B6D] text-white text-xs font-semibold rounded-lg hover-lift"
               >
                 Reset Filters
               </button>
@@ -276,17 +319,23 @@ export const Home: React.FC<HomeProps> = ({ onOpenApplyModal }) => {
           <div className="mt-12 text-center">
             <Link
               to="/academics"
-              className="inline-flex items-center space-x-2 px-6 py-3 bg-slate-100 hover:bg-slate-200 text-[#123B6D] font-bold text-xs uppercase tracking-wider rounded-xl transition-all"
+              className="inline-flex items-center space-x-2 px-6 py-3 bg-slate-100/90 hover:bg-slate-200 text-[#123B6D] font-bold text-xs uppercase tracking-wider rounded-xl transition-all hover-lift border border-slate-200/60"
             >
               <span>Explore All {PROGRAMS_DATA.length} Programs</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* ================= COLLEGES DIRECTORY ================= */}
-      <section className="py-20 bg-slate-50 border-t border-slate-200/60">
+      <motion.section
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.55, ease: 'easeOut' }}
+        className="py-20 bg-slate-50/70 border-t border-slate-200/60"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             badge="Constituent Institutions"
@@ -295,20 +344,26 @@ export const Home: React.FC<HomeProps> = ({ onOpenApplyModal }) => {
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {COLLEGES_DATA.map((college) => (
-              <CollegeCard key={college.id} college={college} />
+            {COLLEGES_DATA.map((college, idx) => (
+              <CollegeCard key={college.id} college={college} index={idx} />
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* ================= CAMPUS LIFE (EDITORIAL STYLE) ================= */}
-      <section className="py-20 bg-white border-t border-slate-200/60">
+      <motion.section
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.55, ease: 'easeOut' }}
+        className="py-20 bg-white border-t border-slate-200/60"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Text Content */}
             <div className="lg:col-span-5 space-y-6">
-              <span className="px-3 py-1 bg-teal-100 text-[#0F766E] rounded-full text-[11px] font-bold uppercase tracking-wider">
+              <span className="px-3 py-1 bg-teal-100/80 backdrop-blur-sm text-[#0F766E] rounded-full text-[11px] font-bold uppercase tracking-wider border border-teal-200/50">
                 Vibrant Student Ecosystem
               </span>
               <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 font-heading leading-tight">
@@ -340,7 +395,7 @@ export const Home: React.FC<HomeProps> = ({ onOpenApplyModal }) => {
               <div className="pt-4">
                 <Link
                   to="/campus-life"
-                  className="inline-flex items-center space-x-2 px-6 py-3 bg-[#123B6D] hover:bg-[#1E4D8C] text-white font-bold text-xs uppercase tracking-wider rounded-xl shadow transition-all cursor-pointer"
+                  className="inline-flex items-center space-x-2 px-6 py-3 bg-[#123B6D] hover:bg-[#1E4D8C] text-white font-bold text-xs uppercase tracking-wider rounded-xl shadow transition-all cursor-pointer hover-lift"
                 >
                   <span>Explore Campus Life</span>
                   <ArrowRight className="w-4 h-4" />
@@ -351,44 +406,50 @@ export const Home: React.FC<HomeProps> = ({ onOpenApplyModal }) => {
             {/* Asymmetrical Editorial Image Grid */}
             <div className="lg:col-span-7 grid grid-cols-2 gap-4">
               <div className="space-y-4">
-                <div className="rounded-2xl overflow-hidden shadow-md h-56 bg-slate-100">
+                <div className="rounded-2xl overflow-hidden shadow-md h-56 bg-slate-100 glass-card p-1">
                   <img
                     src="/assets/library.jpeg"
                     alt="SRGI Campus Library"
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover rounded-xl hover:scale-105 transition-transform duration-500"
                   />
                 </div>
-                <div className="rounded-2xl overflow-hidden shadow-md h-40 bg-slate-100">
+                <div className="rounded-2xl overflow-hidden shadow-md h-40 bg-slate-100 glass-card p-1">
                   <img
                     src="/assets/cafe.jpg"
                     alt="SRGI Science Lab"
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover rounded-xl hover:scale-105 transition-transform duration-500"
                   />
                 </div>
               </div>
               <div className="space-y-4 pt-6">
-                <div className="rounded-2xl overflow-hidden shadow-md h-40 bg-slate-100">
+                <div className="rounded-2xl overflow-hidden shadow-md h-40 bg-slate-100 glass-card p-1">
                   <img
                     src="/assets/gym.jpg"
                     alt="Sports Facilities"
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover rounded-xl hover:scale-105 transition-transform duration-500"
                   />
                 </div>
-                <div className="rounded-2xl overflow-hidden shadow-md h-56 bg-slate-100">
+                <div className="rounded-2xl overflow-hidden shadow-md h-56 bg-slate-100 glass-card p-1">
                   <img
                     src="/assets/hostel.jpeg"
                     alt="Student Collaboration"
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover rounded-xl hover:scale-105 transition-transform duration-500"
                   />
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* ================= PLACEMENTS SECTION ================= */}
-      <section className="py-20 bg-[#0B2545] text-white">
+      <motion.section
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.55, ease: 'easeOut' }}
+        className="py-20 bg-[#0B2545] text-white"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             badge="Career Outcomes"
@@ -399,15 +460,19 @@ export const Home: React.FC<HomeProps> = ({ onOpenApplyModal }) => {
 
           {/* Recruiter Logos Grid */}
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-12">
-            {RECRUITERS.map((rec) => (
-              <div
+            {RECRUITERS.map((rec, idx) => (
+              <motion.div
                 key={rec.name}
-                className="bg-white/10 backdrop-blur-md border border-white/10 rounded-xl p-4 text-center hover:bg-white/20 transition-all duration-200 flex flex-col items-center justify-center h-24"
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.35, delay: (idx % 6) * 0.05 }}
+                className="bg-white/10 backdrop-blur-md border border-white/15 rounded-xl p-4 text-center hover:bg-white/20 transition-all duration-200 flex flex-col items-center justify-center h-24 hover-lift"
               >
                 <span className="text-lg font-extrabold text-white font-heading">
                   {rec.logoText}
                 </span>
-              </div>
+              </motion.div>
             ))}
           </div>
 
@@ -453,17 +518,23 @@ export const Home: React.FC<HomeProps> = ({ onOpenApplyModal }) => {
           <div className="mt-10 text-center">
             <Link
               to="/placements"
-              className="inline-flex items-center space-x-2 px-6 py-3 bg-[#F59E0B] hover:bg-[#D97706] text-slate-950 font-bold text-xs uppercase tracking-wider rounded-xl shadow transition-all"
+              className="inline-flex items-center space-x-2 px-6 py-3 bg-[#F59E0B] hover:bg-[#D97706] text-slate-950 font-bold text-xs uppercase tracking-wider rounded-xl shadow transition-all hover-lift"
             >
               <span>Explore Placement Records</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* ================= NEWS & EVENTS SECTION ================= */}
-      <section className="py-20 bg-slate-50 border-t border-slate-200/60">
+      <motion.section
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.55, ease: 'easeOut' }}
+        className="py-20 bg-slate-50/70 border-t border-slate-200/60"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             badge="Campus Updates"
@@ -473,7 +544,7 @@ export const Home: React.FC<HomeProps> = ({ onOpenApplyModal }) => {
 
           {/* Tabs */}
           <div className="flex justify-center mb-8">
-            <div className="bg-white p-1 rounded-xl shadow-subtle border border-slate-200 flex space-x-1">
+            <div className="bg-white/90 backdrop-blur-md p-1 rounded-xl shadow-subtle border border-slate-200 flex space-x-1">
               {(['News', 'Events', 'Achievements'] as const).map((tab) => (
                 <button
                   key={tab}
@@ -492,17 +563,23 @@ export const Home: React.FC<HomeProps> = ({ onOpenApplyModal }) => {
 
           {/* Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredNews.map((item) => (
-              <EventCard key={item.id} item={item} />
+            {filteredNews.map((item, idx) => (
+              <EventCard key={item.id} item={item} index={idx} />
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* ================= CHAIRMAN MESSAGE SECTION ================= */}
-      <section className="py-20 bg-white border-t border-slate-200/60">
+      <motion.section
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.55, ease: 'easeOut' }}
+        className="py-20 bg-white border-t border-slate-200/60"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-slate-50 border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-subtle">
+          <div className="glass-card border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-subtle">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               {/* Chairman Portrait */}
               <div className="lg:col-span-4 text-center">
@@ -535,7 +612,7 @@ export const Home: React.FC<HomeProps> = ({ onOpenApplyModal }) => {
                 <div className="pt-2">
                   <Link
                     to="/about#chairman"
-                    className="inline-flex items-center space-x-1.5 text-xs font-bold text-[#123B6D] hover:text-[#0F766E] transition-colors"
+                    className="inline-flex items-center space-x-1.5 text-xs font-bold text-[#123B6D] hover:text-[#0F766E] transition-colors hover-lift"
                   >
                     <span>Read Full Leadership Message</span>
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -545,30 +622,40 @@ export const Home: React.FC<HomeProps> = ({ onOpenApplyModal }) => {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* ================= ACCREDITATIONS & APPROVALS ================= */}
-      <section className="py-16 bg-slate-50 border-t border-slate-200/60">
+      <motion.section
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.55, ease: 'easeOut' }}
+        className="py-16 bg-slate-50/70 border-t border-slate-200/60"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="text-xs font-bold text-slate-400 uppercase tracking-widest block mb-4">
             Recognized & Approved By Regulatory Authorities
           </span>
 
           <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-8">
-            {ACCREDITATIONS.map((acc) => (
-              <div
+            {ACCREDITATIONS.map((acc, idx) => (
+              <motion.div
                 key={acc.code}
-                className="bg-white px-6 py-3.5 rounded-xl border border-slate-200 shadow-sm text-center flex flex-col items-center justify-center hover:border-[#123B6D] transition-colors"
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.3, delay: idx * 0.05 }}
+                className="glass-card px-6 py-3.5 rounded-xl border border-white/60 shadow-sm text-center flex flex-col items-center justify-center hover:border-[#123B6D] transition-colors hover-lift"
               >
                 <span className="text-base font-extrabold text-[#123B6D] font-heading">
                   {acc.code}
                 </span>
                 <span className="text-[10px] text-slate-500 font-medium">{acc.type}</span>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* ================= ADMISSION FINAL CTA ================= */}
       <section className="py-20 bg-gradient-to-r from-[#123B6D] via-[#0B2545] to-[#0F766E] text-white text-center relative overflow-hidden">
@@ -588,7 +675,7 @@ export const Home: React.FC<HomeProps> = ({ onOpenApplyModal }) => {
           <div className="pt-4 flex flex-wrap justify-center items-center gap-4">
             <button
               onClick={() => onOpenApplyModal()}
-              className="px-8 py-3.5 bg-[#F59E0B] hover:bg-[#D97706] text-slate-950 font-extrabold text-xs uppercase tracking-wider rounded-xl shadow-xl transition-all cursor-pointer"
+              className="px-8 py-3.5 bg-[#F59E0B] hover:bg-[#D97706] text-slate-950 font-extrabold text-xs uppercase tracking-wider rounded-xl shadow-xl transition-all cursor-pointer hover-lift"
             >
               Apply Online Now
             </button>

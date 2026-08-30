@@ -1,15 +1,23 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Calendar, MapPin, ArrowRight } from 'lucide-react';
 import { NewsItem } from '../data/news';
 
 interface EventCardProps {
   item: NewsItem;
   onReadMore?: (item: NewsItem) => void;
+  index?: number;
 }
 
-export const EventCard: React.FC<EventCardProps> = ({ item, onReadMore }) => {
+export const EventCard: React.FC<EventCardProps> = ({ item, onReadMore, index = 0 }) => {
   return (
-    <div className="bg-white rounded-2xl border border-slate-200/80 overflow-hidden shadow-subtle hover:shadow-card-hover transition-all duration-300 flex flex-col group hover:-translate-y-1">
+    <motion.div
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.45, delay: (index % 6) * 0.08, ease: 'easeOut' }}
+      className="glass-card rounded-2xl border border-white/60 overflow-hidden shadow-subtle hover:shadow-xl transition-all duration-300 flex flex-col group hover:-translate-y-1.5"
+    >
       <div className="relative h-44 overflow-hidden bg-slate-100">
         <img
           src={item.image}
@@ -18,7 +26,7 @@ export const EventCard: React.FC<EventCardProps> = ({ item, onReadMore }) => {
           loading="lazy"
         />
         <div className="absolute top-3 left-3">
-          <span className="px-2.5 py-1 bg-[#123B6D] text-white text-[10px] font-extrabold uppercase tracking-wider rounded-md shadow">
+          <span className="px-2.5 py-1 bg-[#123B6D]/90 backdrop-blur-md text-white text-[10px] font-extrabold uppercase tracking-wider rounded-md shadow">
             {item.category}
           </span>
         </div>
@@ -48,19 +56,19 @@ export const EventCard: React.FC<EventCardProps> = ({ item, onReadMore }) => {
           </p>
         </div>
 
-        <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
+        <div className="pt-3 border-t border-slate-200/60 flex items-center justify-between">
           <span className="text-[11px] font-semibold text-[#0F766E]">
             {item.badgeText || 'SRGI Event'}
           </span>
           <button
             onClick={() => onReadMore && onReadMore(item)}
-            className="text-xs font-bold text-[#123B6D] hover:text-[#0F766E] flex items-center space-x-1 transition-colors cursor-pointer"
+            className="text-xs font-bold text-[#123B6D] hover:text-[#0F766E] flex items-center space-x-1 transition-colors cursor-pointer hover-lift"
           >
             <span>Read More</span>
             <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
           </button>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };

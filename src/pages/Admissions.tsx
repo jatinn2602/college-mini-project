@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import { SectionHeading } from '../components/SectionHeading';
 import { PROGRAMS_DATA } from '../data/programs';
 import {
@@ -88,10 +89,15 @@ export const Admissions: React.FC = () => {
   return (
     <div className="space-y-0">
       {/* Hero */}
-      <section className="bg-[#123B6D] text-white py-16 lg:py-24">
+      <section className="bg-[#123B6D] text-white py-16 lg:py-24 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl space-y-4">
-            <span className="px-3 py-1 bg-white/10 text-amber-300 rounded-full text-xs font-bold uppercase tracking-wider">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
+            className="max-w-3xl space-y-4"
+          >
+            <span className="px-3.5 py-1 bg-white/10 backdrop-blur-md text-amber-300 rounded-full text-xs font-bold uppercase tracking-wider border border-white/15">
               Admissions 2026-27
             </span>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-heading tracking-tight">
@@ -100,12 +106,19 @@ export const Admissions: React.FC = () => {
             <p className="text-base sm:text-lg text-slate-200 leading-relaxed">
               Step into a future of academic growth, industry exposure, and career achievement. Follow our streamlined admission process below.
             </p>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Admission Process Timeline */}
-      <section id="process" className="py-20 bg-slate-50">
+      <motion.section
+        id="process"
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, ease: 'easeOut' }}
+        className="py-20 bg-slate-50/70"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             badge="Step-by-Step Guide"
@@ -114,35 +127,45 @@ export const Admissions: React.FC = () => {
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {admissionSteps.map((step) => (
-              <div
+            {admissionSteps.map((step, idx) => (
+              <motion.div
                 key={step.num}
-                className="bg-white p-7 rounded-2xl border border-slate-200 shadow-subtle relative overflow-hidden group hover:border-[#123B6D] transition-colors"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: idx * 0.08, ease: 'easeOut' }}
+                className="glass-card p-7 rounded-2xl border border-white/60 shadow-subtle relative overflow-hidden group hover:border-[#123B6D] transition-all hover-lift"
               >
                 <div className="text-4xl font-extrabold text-[#123B6D]/15 font-heading absolute top-4 right-4">
                   {step.num}
                 </div>
-                <div className="w-10 h-10 bg-amber-100 text-[#D97706] rounded-xl flex items-center justify-center font-bold text-sm font-heading mb-4">
+                <div className="w-10 h-10 bg-amber-100/80 text-[#D97706] rounded-xl flex items-center justify-center font-bold text-sm font-heading mb-4">
                   {step.num}
                 </div>
                 <h3 className="text-lg font-bold text-slate-900 font-heading mb-2">
                   {step.title}
                 </h3>
                 <p className="text-xs text-slate-600 leading-relaxed">{step.desc}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Embedded Application Form & Documents Row */}
-      <section className="py-20 bg-white border-t border-slate-200">
+      <motion.section
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, ease: 'easeOut' }}
+        className="py-20 bg-white border-t border-slate-200/60"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             {/* Required Documents & Details */}
             <div id="documents" className="lg:col-span-5 space-y-8">
               <div>
-                <span className="px-3 py-1 bg-blue-100 text-[#123B6D] rounded-full text-xs font-bold uppercase tracking-wider">
+                <span className="px-3.5 py-1 bg-blue-100/80 text-[#123B6D] rounded-full text-xs font-bold uppercase tracking-wider">
                   Checklist
                 </span>
                 <h2 className="text-2xl font-bold text-slate-900 font-heading mt-2 mb-4">
@@ -158,7 +181,7 @@ export const Admissions: React.FC = () => {
                     'Aadhar Card & 4 Passport Size Photographs',
                     'Domicile Certificate (For State Scholarship)',
                   ].map((doc, idx) => (
-                    <div key={idx} className="flex items-start space-x-2.5 text-xs text-slate-700 bg-slate-50 p-3 rounded-xl border border-slate-200">
+                    <div key={idx} className="glass-card flex items-start space-x-2.5 text-xs text-slate-700 p-3.5 rounded-xl border border-white/60 shadow-xs hover-lift">
                       <FileText className="w-4 h-4 text-[#0F766E] shrink-0 mt-0.5" />
                       <span>{doc}</span>
                     </div>
@@ -167,7 +190,7 @@ export const Admissions: React.FC = () => {
               </div>
 
               {/* Fee & Scholarship Info */}
-              <div id="scholarships" className="bg-[#0B2545] text-white p-6 rounded-2xl space-y-3">
+              <div id="scholarships" className="bg-[#0B2545] text-white p-6 rounded-2xl space-y-3 shadow-lg">
                 <div className="flex items-center space-x-2 text-amber-400">
                   <Award className="w-5 h-5" />
                   <h3 className="text-base font-bold font-heading">Scholarship Support</h3>
@@ -179,7 +202,7 @@ export const Admissions: React.FC = () => {
             </div>
 
             {/* Embedded Demo Apply Form */}
-            <div className="lg:col-span-7 bg-slate-50 border border-slate-200 rounded-3xl p-8 shadow-card">
+            <div className="lg:col-span-7 glass-card border border-slate-200/80 rounded-3xl p-8 shadow-card">
               <div className="flex items-center space-x-3 mb-6">
                 <div className="w-10 h-10 bg-[#123B6D] text-white rounded-xl flex items-center justify-center">
                   <GraduationCap className="w-6 h-6 text-[#F59E0B]" />
@@ -195,7 +218,7 @@ export const Admissions: React.FC = () => {
               </div>
 
               {isSubmitted ? (
-                <div className="bg-teal-50 border border-teal-200 p-8 rounded-2xl text-center space-y-3">
+                <div className="bg-teal-50/80 border border-teal-200 p-8 rounded-2xl text-center space-y-3">
                   <CheckCircle2 className="w-12 h-12 text-[#0F766E] mx-auto" />
                   <h4 className="text-lg font-bold text-slate-900">
                     Application enquiry submitted successfully.
@@ -208,7 +231,7 @@ export const Admissions: React.FC = () => {
                       setIsSubmitted(false);
                       setFormData({ fullName: '', email: '', phone: '', city: '', program: 'btech-cse', message: '' });
                     }}
-                    className="mt-4 px-5 py-2 bg-[#123B6D] text-white text-xs font-bold rounded-lg"
+                    className="mt-4 px-5 py-2 bg-[#123B6D] text-white text-xs font-bold rounded-lg hover-lift"
                   >
                     Submit Another Query
                   </button>
@@ -224,7 +247,7 @@ export const Admissions: React.FC = () => {
                       placeholder="e.g. Amit Kumar"
                       value={formData.fullName}
                       onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                      className={`w-full px-4 py-2.5 bg-white text-sm border ${errors.fullName ? 'border-red-500' : 'border-slate-300'
+                      className={`w-full px-4 py-2.5 bg-white/90 text-sm border ${errors.fullName ? 'border-red-500' : 'border-slate-300'
                         } rounded-xl focus:outline-none focus:border-[#123B6D]`}
                     />
                     {errors.fullName && <p className="text-xs text-red-500 mt-1">{errors.fullName}</p>}
@@ -240,7 +263,7 @@ export const Admissions: React.FC = () => {
                         placeholder="email@example.com"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className={`w-full px-4 py-2.5 bg-white text-sm border ${errors.email ? 'border-red-500' : 'border-slate-300'
+                        className={`w-full px-4 py-2.5 bg-white/90 text-sm border ${errors.email ? 'border-red-500' : 'border-slate-300'
                           } rounded-xl focus:outline-none focus:border-[#123B6D]`}
                       />
                       {errors.email && <p className="text-xs text-red-500 mt-1">{errors.email}</p>}
@@ -255,7 +278,7 @@ export const Admissions: React.FC = () => {
                         placeholder="10-digit number"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className={`w-full px-4 py-2.5 bg-white text-sm border ${errors.phone ? 'border-red-500' : 'border-slate-300'
+                        className={`w-full px-4 py-2.5 bg-white/90 text-sm border ${errors.phone ? 'border-red-500' : 'border-slate-300'
                           } rounded-xl focus:outline-none focus:border-[#123B6D]`}
                       />
                       {errors.phone && <p className="text-xs text-red-500 mt-1">{errors.phone}</p>}
@@ -272,7 +295,7 @@ export const Admissions: React.FC = () => {
                         placeholder="e.g. Jhansi / Gwalior"
                         value={formData.city}
                         onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-                        className={`w-full px-4 py-2.5 bg-white text-sm border ${errors.city ? 'border-red-500' : 'border-slate-300'
+                        className={`w-full px-4 py-2.5 bg-white/90 text-sm border ${errors.city ? 'border-red-500' : 'border-slate-300'
                           } rounded-xl focus:outline-none focus:border-[#123B6D]`}
                       />
                       {errors.city && <p className="text-xs text-red-500 mt-1">{errors.city}</p>}
@@ -285,7 +308,7 @@ export const Admissions: React.FC = () => {
                       <select
                         value={formData.program}
                         onChange={(e) => setFormData({ ...formData, program: e.target.value })}
-                        className="w-full px-4 py-2.5 bg-white text-sm border border-slate-300 rounded-xl focus:outline-none focus:border-[#123B6D]"
+                        className="w-full px-4 py-2.5 bg-white/90 text-sm border border-slate-300 rounded-xl focus:outline-none focus:border-[#123B6D]"
                       >
                         {PROGRAMS_DATA.map((prog) => (
                           <option key={prog.id} value={prog.id}>
@@ -305,13 +328,13 @@ export const Admissions: React.FC = () => {
                       placeholder="Ask about cutoff marks, hostel fees, direct admissions..."
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="w-full px-4 py-2.5 bg-white text-sm border border-slate-300 rounded-xl focus:outline-none focus:border-[#123B6D]"
+                      className="w-full px-4 py-2.5 bg-white/90 text-sm border border-slate-300 rounded-xl focus:outline-none focus:border-[#123B6D]"
                     ></textarea>
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full py-3.5 bg-[#123B6D] hover:bg-[#1E4D8C] text-white font-bold text-xs uppercase tracking-wider rounded-xl shadow-md flex items-center justify-center space-x-2 transition-all cursor-pointer"
+                    className="w-full py-3.5 bg-[#123B6D] hover:bg-[#1E4D8C] text-white font-bold text-xs uppercase tracking-wider rounded-xl shadow-md flex items-center justify-center space-x-2 transition-all cursor-pointer hover-lift"
                   >
                     <span>Submit Application Enquiry</span>
                     <Send className="w-4 h-4" />
@@ -321,10 +344,16 @@ export const Admissions: React.FC = () => {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* FAQ Accordion */}
-      <section className="py-20 bg-slate-50 border-t border-slate-200">
+      <motion.section
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, ease: 'easeOut' }}
+        className="py-20 bg-slate-50/70 border-t border-slate-200/60"
+      >
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             badge="Got Questions?"
@@ -338,7 +367,7 @@ export const Admissions: React.FC = () => {
               return (
                 <div
                   key={idx}
-                  className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-subtle"
+                  className="glass-card border border-slate-200/80 rounded-2xl overflow-hidden shadow-subtle transition-all"
                 >
                   <button
                     onClick={() => setOpenFaq(isOpen ? null : idx)}
@@ -360,7 +389,7 @@ export const Admissions: React.FC = () => {
             })}
           </div>
         </div>
-      </section>
+      </motion.section>
     </div>
   );
 };

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import { SectionHeading } from '../components/SectionHeading';
 import { MapPin, Phone, Mail, Clock, Send, CheckCircle2, GraduationCap } from 'lucide-react';
 
@@ -22,10 +23,15 @@ export const Contact: React.FC = () => {
   return (
     <div className="space-y-0">
       {/* Hero */}
-      <section className="bg-[#123B6D] text-white py-16 lg:py-24">
+      <section className="bg-[#123B6D] text-white py-16 lg:py-24 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl space-y-4">
-            <span className="px-3 py-1 bg-white/10 text-amber-300 rounded-full text-xs font-bold uppercase tracking-wider">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
+            className="max-w-3xl space-y-4"
+          >
+            <span className="px-3.5 py-1 bg-white/10 backdrop-blur-md text-amber-300 rounded-full text-xs font-bold uppercase tracking-wider border border-white/15">
               Get in Touch
             </span>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-heading tracking-tight">
@@ -34,12 +40,18 @@ export const Contact: React.FC = () => {
             <p className="text-base sm:text-lg text-slate-200 leading-relaxed">
               Have questions regarding admissions, fee structure, or campus visits? Reach out to our team or send us a message.
             </p>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Main Contact Section */}
-      <section className="py-20 bg-slate-50">
+      <motion.section
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, ease: 'easeOut' }}
+        className="py-20 bg-slate-50/70"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             {/* Contact Details & Info */}
@@ -54,8 +66,14 @@ export const Contact: React.FC = () => {
               </div>
 
               <div className="space-y-4">
-                <div className="flex items-start space-x-4 bg-white p-5 rounded-2xl border border-slate-200 shadow-subtle">
-                  <div className="p-3 bg-blue-50 text-[#123B6D] rounded-xl shrink-0">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: 0 }}
+                  className="glass-card flex items-start space-x-4 p-5 rounded-2xl border border-white/60 shadow-subtle hover-lift"
+                >
+                  <div className="p-3 bg-blue-50/80 text-[#123B6D] rounded-xl shrink-0">
                     <MapPin className="w-6 h-6" />
                   </div>
                   <div>
@@ -66,10 +84,16 @@ export const Contact: React.FC = () => {
                       SR Group of Institutions, NH-25, Gwalior Road, Jhansi, Uttar Pradesh - 284003
                     </p>
                   </div>
-                </div>
+                </motion.div>
 
-                <div className="flex items-start space-x-4 bg-white p-5 rounded-2xl border border-slate-200 shadow-subtle">
-                  <div className="p-3 bg-teal-50 text-[#0F766E] rounded-xl shrink-0">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: 0.1 }}
+                  className="glass-card flex items-start space-x-4 p-5 rounded-2xl border border-white/60 shadow-subtle hover-lift"
+                >
+                  <div className="p-3 bg-teal-50/80 text-[#0F766E] rounded-xl shrink-0">
                     <Phone className="w-6 h-6" />
                   </div>
                   <div>
@@ -83,10 +107,16 @@ export const Contact: React.FC = () => {
                       Phone: +91 510-2730200 / +91 94150-12345
                     </p>
                   </div>
-                </div>
+                </motion.div>
 
-                <div className="flex items-start space-x-4 bg-white p-5 rounded-2xl border border-slate-200 shadow-subtle">
-                  <div className="p-3 bg-amber-50 text-[#D97706] rounded-xl shrink-0">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: 0.2 }}
+                  className="glass-card flex items-start space-x-4 p-5 rounded-2xl border border-white/60 shadow-subtle hover-lift"
+                >
+                  <div className="p-3 bg-amber-50/80 text-[#D97706] rounded-xl shrink-0">
                     <Mail className="w-6 h-6" />
                   </div>
                   <div>
@@ -100,10 +130,16 @@ export const Contact: React.FC = () => {
                       General Queries: info@srgi.ac.in
                     </p>
                   </div>
-                </div>
+                </motion.div>
 
-                <div className="flex items-start space-x-4 bg-white p-5 rounded-2xl border border-slate-200 shadow-subtle">
-                  <div className="p-3 bg-indigo-50 text-[#1E4D8C] rounded-xl shrink-0">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: 0.3 }}
+                  className="glass-card flex items-start space-x-4 p-5 rounded-2xl border border-white/60 shadow-subtle hover-lift"
+                >
+                  <div className="p-3 bg-indigo-50/80 text-[#1E4D8C] rounded-xl shrink-0">
                     <Clock className="w-6 h-6" />
                   </div>
                   <div>
@@ -114,12 +150,12 @@ export const Contact: React.FC = () => {
                       Monday to Saturday: 9:00 AM – 5:00 PM
                     </p>
                   </div>
-                </div>
+                </motion.div>
               </div>
             </div>
 
             {/* Form */}
-            <div className="lg:col-span-7 bg-white border border-slate-200 rounded-3xl p-8 shadow-card">
+            <div className="lg:col-span-7 glass-card border border-slate-200/80 rounded-3xl p-8 shadow-card">
               <h3 className="text-xl font-bold text-slate-900 font-heading mb-2">
                 Send Us an Enquiry
               </h3>
@@ -128,7 +164,7 @@ export const Contact: React.FC = () => {
               </p>
 
               {submitted ? (
-                <div className="bg-teal-50 border border-teal-200 p-8 rounded-2xl text-center space-y-3">
+                <div className="bg-teal-50/80 border border-teal-200 p-8 rounded-2xl text-center space-y-3">
                   <CheckCircle2 className="w-12 h-12 text-[#0F766E] mx-auto" />
                   <h4 className="text-lg font-bold text-slate-900">Message Received!</h4>
                   <p className="text-xs text-slate-600">
@@ -136,7 +172,7 @@ export const Contact: React.FC = () => {
                   </p>
                   <button
                     onClick={() => setSubmitted(false)}
-                    className="mt-4 px-4 py-2 bg-[#123B6D] text-white text-xs font-bold rounded-lg"
+                    className="mt-4 px-4 py-2 bg-[#123B6D] text-white text-xs font-bold rounded-lg hover-lift"
                   >
                     Send Another Message
                   </button>
@@ -153,7 +189,7 @@ export const Contact: React.FC = () => {
                       placeholder="e.g. Ramesh Verma"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:outline-none focus:border-[#123B6D] focus:bg-white"
+                      className="w-full px-4 py-2.5 bg-white/90 border border-slate-300 rounded-xl text-sm focus:outline-none focus:border-[#123B6D]"
                     />
                   </div>
 
@@ -168,7 +204,7 @@ export const Contact: React.FC = () => {
                         placeholder="name@domain.com"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:outline-none focus:border-[#123B6D] focus:bg-white"
+                        className="w-full px-4 py-2.5 bg-white/90 border border-slate-300 rounded-xl text-sm focus:outline-none focus:border-[#123B6D]"
                       />
                     </div>
 
@@ -182,7 +218,7 @@ export const Contact: React.FC = () => {
                         placeholder="10-digit mobile"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:outline-none focus:border-[#123B6D] focus:bg-white"
+                        className="w-full px-4 py-2.5 bg-white/90 border border-slate-300 rounded-xl text-sm focus:outline-none focus:border-[#123B6D]"
                       />
                     </div>
                   </div>
@@ -196,7 +232,7 @@ export const Contact: React.FC = () => {
                       placeholder="e.g. B.Tech CSE Seat Availability"
                       value={formData.subject}
                       onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                      className="w-full px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:outline-none focus:border-[#123B6D] focus:bg-white"
+                      className="w-full px-4 py-2.5 bg-white/90 border border-slate-300 rounded-xl text-sm focus:outline-none focus:border-[#123B6D]"
                     />
                   </div>
 
@@ -209,13 +245,13 @@ export const Contact: React.FC = () => {
                       placeholder="Type your message or query here..."
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="w-full px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:outline-none focus:border-[#123B6D] focus:bg-white"
+                      className="w-full px-4 py-2.5 bg-white/90 border border-slate-300 rounded-xl text-sm focus:outline-none focus:border-[#123B6D]"
                     ></textarea>
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full py-3.5 bg-[#123B6D] hover:bg-[#1E4D8C] text-white font-bold text-xs uppercase tracking-wider rounded-xl shadow-md flex items-center justify-center space-x-2 transition-all cursor-pointer"
+                    className="w-full py-3.5 bg-[#123B6D] hover:bg-[#1E4D8C] text-white font-bold text-xs uppercase tracking-wider rounded-xl shadow-md flex items-center justify-center space-x-2 transition-all cursor-pointer hover-lift"
                   >
                     <span>Submit Message</span>
                     <Send className="w-4 h-4" />
@@ -226,11 +262,17 @@ export const Contact: React.FC = () => {
           </div>
 
           {/* Styled Campus Map Section */}
-          <div className="mt-16 bg-white p-6 rounded-3xl border border-slate-200 shadow-subtle space-y-4">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
+            className="mt-16 glass-card p-6 rounded-3xl border border-white/60 shadow-subtle space-y-4"
+          >
             <h3 className="text-lg font-bold text-slate-900 font-heading">
               Campus Location Map
             </h3>
-            <div className="w-full h-80 bg-slate-100 rounded-2xl overflow-hidden relative flex items-center justify-center border border-slate-200">
+            <div className="w-full h-80 bg-slate-100/60 rounded-2xl overflow-hidden relative flex items-center justify-center border border-slate-200/60">
               <iframe
                 title="SRGI Campus Location"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3603.558362635952!2d78.5300!3d25.4200!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDI1JzEyLjAiTiA3OMKwMzEnNDggMCJF!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin"
@@ -242,9 +284,9 @@ export const Contact: React.FC = () => {
                 className="w-full h-full"
               ></iframe>
             </div>
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
     </div>
   );
 };

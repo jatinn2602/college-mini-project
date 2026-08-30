@@ -173,10 +173,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenApplyModal }) => {
         {/* Bottom Disclaimer & Copyright */}
         <div className="pt-6 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-slate-400">
           <p>© {new Date().getFullYear()} SR Group of Institutions (SRGI), Jhansi. All rights reserved.</p>
-          <div className="flex items-center space-x-2 bg-slate-900/60 px-3 py-1.5 rounded-lg border border-slate-800">
-            <Heart className="w-3.5 h-3.5 text-amber-500 fill-amber-500" />
-            <span className="text-[11px]">SRGI Modern Website Redesign • Academic Mini-Project</span>
-          </div>
+          
         </div>
       </div>
     </footer>

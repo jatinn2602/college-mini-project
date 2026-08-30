@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { X, CheckCircle2, Send, GraduationCap } from 'lucide-react';
 import { PROGRAMS_DATA } from '../data/programs';
 
@@ -24,8 +25,6 @@ export const ApplyModal: React.FC<ApplyModalProps> = ({
 
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitted, setIsSubmitted] = useState(false);
-
-  if (!isOpen) return null;
 
   const validate = () => {
     const newErrors: Record<string, string> = {};
@@ -62,7 +61,6 @@ export const ApplyModal: React.FC<ApplyModalProps> = ({
     e.preventDefault();
 
     if (validate()) {
-      // Save submission into localStorage as a demo feature
       const existingStr = localStorage.getItem('srgi_demo_applications');
       const existing = existingStr ? JSON.parse(existingStr) : [];
       const newSubmission = {
@@ -95,8 +93,22 @@ export const ApplyModal: React.FC<ApplyModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-in fade-in duration-200">
-      <div className="bg-white w-full max-w-lg rounded-2xl shadow-2xl border border-slate-100 overflow-hidden relative max-h-[90vh] flex flex-col">
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.2 }}
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 glass-modal-backdrop"
+        >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.97, y: 10 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.97, y: 10 }}
+            transition={{ duration: 0.25, ease: 'easeOut' }}
+            className="bg-white w-full max-w-lg rounded-2xl shadow-2xl border border-slate-100 overflow-hidden relative max-h-[90vh] flex flex-col"
+          >
         {/* Header */}
         <div className="bg-[#123B6D] text-white p-5 flex items-center justify-between">
           <div className="flex items-center space-x-3">
@@ -250,7 +262,9 @@ export const ApplyModal: React.FC<ApplyModalProps> = ({
             </form>
           )}
         </div>
-      </div>
-    </div>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 };
