@@ -35,6 +35,12 @@ export const AnnouncementBar: React.FC<AnnouncementBarProps> = ({ onOpenApplyMod
           >
             Apply Online →
           </button>
+          <a
+            href="/student-login"
+            className="text-[#F59E0B] hover:text-amber-300 font-semibold transition-colors duration-150 flex items-center gap-1"
+          >
+            Portal Login →
+          </a>
         </div>
       </div>
     </div>

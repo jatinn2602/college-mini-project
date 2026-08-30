@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 
+import { AuthProvider } from './context/AuthContext';
+import { ProtectedRoute } from './components/ProtectedRoute';
+
 import { AnnouncementBar } from './components/AnnouncementBar';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
@@ -14,6 +17,8 @@ import { Admissions } from './pages/Admissions';
 import { Placements } from './pages/Placements';
 import { CampusLife } from './pages/CampusLife';
 import { Contact } from './pages/Contact';
+import { StudentLogin } from './pages/StudentLogin';
+import { StudentDashboard } from './pages/StudentDashboard';
 import { NotFound } from './pages/NotFound';
 
 // Helper component to scroll window to top on route change or hash navigation
@@ -34,9 +39,12 @@ const ScrollToTop: React.FC = () => {
   return null;
 };
 
-export const App: React.FC = () => {
+const MainLayout: React.FC = () => {
+  const location = useLocation();
   const [applyModalOpen, setApplyModalOpen] = useState(false);
   const [selectedProgramForModal, setSelectedProgramForModal] = useState<string>('');
+
+  const isDashboardRoute = location.pathname.startsWith('/student-dashboard');
 
   const handleOpenApplyModal = (programId?: string) => {
     setSelectedProgramForModal(programId || '');
@@ -48,42 +56,63 @@ export const App: React.FC = () => {
     setSelectedProgramForModal('');
   };
 
+  if (isDashboardRoute) {
+    return (
+      <Routes>
+        <Route path="/student-dashboard/*" element={
+          <ProtectedRoute>
+            <StudentDashboard />
+          </ProtectedRoute>
+        } />
+      </Routes>
+    );
+  }
+
   return (
-    <Router>
-      <ScrollToTop />
-      <div className="min-h-screen flex flex-col bg-[#F8FAFC]">
-        {/* Global Announcement Bar */}
-        <AnnouncementBar onOpenApplyModal={() => handleOpenApplyModal()} />
+    <div className="min-h-screen flex flex-col bg-[#F8FAFC]">
+      {/* Global Announcement Bar */}
+      <AnnouncementBar onOpenApplyModal={() => handleOpenApplyModal()} />
 
-        {/* Global Sticky Navbar */}
-        <Navbar onOpenApplyModal={() => handleOpenApplyModal()} />
+      {/* Global Sticky Navbar */}
+      <Navbar onOpenApplyModal={() => handleOpenApplyModal()} />
 
-        {/* Page Content */}
-        <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<Home onOpenApplyModal={handleOpenApplyModal} />} />
-            <Route path="/about" element={<About onOpenApplyModal={() => handleOpenApplyModal()} />} />
-            <Route path="/academics" element={<Academics onOpenApplyModal={handleOpenApplyModal} />} />
-            <Route path="/colleges" element={<Colleges onOpenApplyModal={handleOpenApplyModal} />} />
-            <Route path="/admissions" element={<Admissions />} />
-            <Route path="/placements" element={<Placements onOpenApplyModal={() => handleOpenApplyModal()} />} />
-            <Route path="/campus-life" element={<CampusLife onOpenApplyModal={() => handleOpenApplyModal()} />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </main>
+      {/* Page Content */}
+      <main className="flex-grow">
+        <Routes>
+          <Route path="/" element={<Home onOpenApplyModal={handleOpenApplyModal} />} />
+          <Route path="/about" element={<About onOpenApplyModal={() => handleOpenApplyModal()} />} />
+          <Route path="/academics" element={<Academics onOpenApplyModal={handleOpenApplyModal} />} />
+          <Route path="/colleges" element={<Colleges onOpenApplyModal={handleOpenApplyModal} />} />
+          <Route path="/admissions" element={<Admissions />} />
+          <Route path="/placements" element={<Placements onOpenApplyModal={() => handleOpenApplyModal()} />} />
+          <Route path="/campus-life" element={<CampusLife onOpenApplyModal={() => handleOpenApplyModal()} />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/student-login" element={<StudentLogin />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </main>
 
-        {/* Global Footer */}
-        <Footer onOpenApplyModal={() => handleOpenApplyModal()} />
+      {/* Global Footer */}
+      <Footer onOpenApplyModal={() => handleOpenApplyModal()} />
 
-        {/* Global Apply Modal */}
-        <ApplyModal
-          isOpen={applyModalOpen}
-          onClose={handleCloseApplyModal}
-          defaultProgramId={selectedProgramForModal}
-        />
-      </div>
-    </Router>
+      {/* Global Apply Modal */}
+      <ApplyModal
+        isOpen={applyModalOpen}
+        onClose={handleCloseApplyModal}
+        defaultProgramId={selectedProgramForModal}
+      />
+    </div>
+  );
+};
+
+export const App: React.FC = () => {
+  return (
+    <AuthProvider>
+      <Router>
+        <ScrollToTop />
+        <MainLayout />
+      </Router>
+    </AuthProvider>
   );
 };
 

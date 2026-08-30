@@ -103,7 +103,15 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
       </div>
 
       {/* Footer / CTA inside Mobile Menu */}
-      <div className="p-5 border-t border-slate-200 bg-slate-50 space-y-4">
+      <div className="p-5 border-t border-slate-200 bg-slate-50 space-y-3">
+        <Link
+          to="/student-login"
+          onClick={onClose}
+          className="w-full py-3 px-4 bg-amber-400 text-slate-950 font-bold text-sm tracking-wider uppercase rounded-xl shadow-md text-center block cursor-pointer"
+        >
+          Student Portal Login
+        </Link>
+
         <button
           onClick={() => {
             onClose();

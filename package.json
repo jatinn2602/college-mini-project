@@ -7,10 +7,12 @@
     "dev": "node scripts/copy-assets.js && vite",
     "prebuild": "node scripts/copy-assets.js",
     "build": "node scripts/copy-assets.js && tsc && vite build",
+    "db:seed": "node scripts/seed-supabase.js",
     "lint": "tsc",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.112.4",
     "clsx": "^2.1.1",
     "framer-motion": "^12.4.7",
     "lucide-react": "^0.475.0",

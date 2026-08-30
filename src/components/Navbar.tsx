@@ -155,6 +155,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenApplyModal }) => {
 
             {/* CTA & Mobile Toggle */}
             <div className="flex items-center space-x-3">
+              <Link
+                to="/student-login"
+                className="hidden sm:inline-flex items-center justify-center px-3.5 py-2.5 rounded-lg font-semibold text-xs uppercase tracking-wider text-[#123B6D] bg-amber-400/20 hover:bg-amber-400/30 border border-amber-400/40 transition-all cursor-pointer"
+              >
+                Student Portal
+              </Link>
+
               <button
                 onClick={onOpenApplyModal}
                 className="hidden sm:inline-flex items-center justify-center px-4 py-2.5 rounded-lg font-semibold text-xs uppercase tracking-wider text-white bg-[#123B6D] hover:bg-[#1E4D8C] active:bg-[#0B2545] shadow-md hover:shadow-lg transition-all duration-200 group cursor-pointer"
