@@ -55,7 +55,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenApplyModal }) => {
         { label: 'All Programs', path: '/academics' },
         { label: 'Constituent Colleges', path: '/colleges' },
         { label: 'Academic Ecosystem', path: '/academics#ecosystem' },
-        { label: 'IQAC & NIRF', path: '/academics#quality' },
       ],
     },
     {
@@ -65,24 +64,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenApplyModal }) => {
     {
       label: 'Admissions',
       path: '/admissions',
-      dropdown: [
-        { label: 'How to Apply', path: '/admissions#process' },
-        { label: 'Eligibility & Programs', path: '/admissions#eligibility' },
-        { label: 'Required Documents', path: '/admissions#documents' },
-        { label: 'Fee Structure', path: '/admissions#fees' },
-        { label: 'Scholarships & Aid', path: '/admissions#scholarships' },
-      ],
     },
     {
       label: 'Campus Life',
       path: '/campus-life',
-      dropdown: [
-        { label: 'Campus Infrastructure', path: '/campus-life#infrastructure' },
-        { label: 'Hostel & Residential', path: '/campus-life#hostel' },
-        { label: 'Library & Digital Hub', path: '/campus-life#library' },
-        { label: 'Sports & Recreation', path: '/campus-life#sports' },
-        { label: 'Student Activities', path: '/campus-life#activities' },
-      ],
     },
     { label: 'Placements', path: '/placements' },
     { label: 'Contact', path: '/contact' },
@@ -136,16 +121,19 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenApplyModal }) => {
 
                     {/* Dropdown Menu */}
                     {hasDropdown && activeDropdown === item.label && (
-                      <div className="absolute top-full left-0 mt-1 w-56 bg-white rounded-xl shadow-xl border border-slate-100 py-2 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
-                        {item.dropdown!.map((subItem) => (
-                          <Link
-                            key={subItem.label}
-                            to={subItem.path}
-                            className="block px-4 py-2.5 text-xs font-semibold text-slate-700 hover:text-[#123B6D] hover:bg-slate-50 hover:pl-5 transition-all duration-150"
-                          >
-                            {subItem.label}
-                          </Link>
-                        ))}
+                      <div className="absolute top-full left-0 pt-1.5 w-56 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+                        <div className="bg-white rounded-xl shadow-xl border border-slate-100 py-2">
+                          {item.dropdown!.map((subItem) => (
+                            <Link
+                              key={subItem.label}
+                              to={subItem.path}
+                              onClick={() => setActiveDropdown(null)}
+                              className="block px-4 py-2.5 text-xs font-semibold text-slate-700 hover:text-[#123B6D] hover:bg-slate-50 hover:pl-5 transition-all duration-150"
+                            >
+                              {subItem.label}
+                            </Link>
+                          ))}
+                        </div>
                       </div>
                     )}
                   </div>
