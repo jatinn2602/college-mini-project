@@ -8,7 +8,7 @@ export const StudentLogin: React.FC = () => {
   const navigate = useNavigate();
   const { login, studentData } = useAuth();
 
-  const [mobile, setMobile] = useState<string>('Enter your Number');
+  const [mobile, setMobile] = useState<string>('');
   const [dob, setDob] = useState<string>('yyyy-mm-dd');
   const [error, setError] = useState<string>('');
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
@@ -87,11 +87,12 @@ export const StudentLogin: React.FC = () => {
               <input
                 id="mobile"
                 name="mobile"
+                
                 type="tel"
                 required
                 value={mobile}
                 onChange={(e) => setMobile(e.target.value)}
-                placeholder="e.g. 9000000001"
+                placeholder="Enter your Mobile Number"
                 className="w-full pl-10 pr-4 py-3 bg-slate-950/60 border border-slate-700/80 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent text-sm font-mono tracking-wide"
               />
             </div>
